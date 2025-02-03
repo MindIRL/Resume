@@ -1,0 +1,20 @@
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    background-color: aqua;
+}
+
+.nav-link {
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    margin: 10px;
+    margin-top: 23px;
+}
+
+.nav-login {
+    margin: 15px;
+    margin-top: 23px;
+}
