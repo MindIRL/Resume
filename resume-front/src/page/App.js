@@ -1,8 +1,9 @@
 // import logo from './logo.svg';
 
-import "./style/app.css"
-import Nav from "./component/Nav";
-import Content from "./component/Content"
+import "../style/app.css"
+import Nav from "../component/Nav";
+import Content from "../component/Content"
+
 
 function App() {
   return (

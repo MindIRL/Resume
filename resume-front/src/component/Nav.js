@@ -1,19 +1,19 @@
 
-
-import nav from "../style/nav.css"
+import {Link} from "react-router-dom"
+import  "../style/nav.css"
 
 const Nav = () => {
     return(
         <div className="nav">
             <div className="nav-link">
-                <div><a href="/">หน้าแรก</a></div>
-                <div><a>การศึกษา</a></div>
-                <div><a>การทำงาน</a></div>
-                <div><a>ติดต่อ</a></div>
+                <div><Link to={"/"}>หน้าแรก</Link></div>
+                <div><Link to={"/Education"}>การศึกษา</Link></div>
+                <div><Link to={"/Job"}>การทำงาน</Link></div>
+                <div><Link to={"/Contect"}>ติดต่อ</Link></div>
             </div>
 
             <div className="nav-login">
-                <div><a>เข้าสู่ระบบ</a></div>
+                <div><Link to= {"/Login"}>เข้าสู่ระบบ</Link></div>
             </div>
     </div>
 
