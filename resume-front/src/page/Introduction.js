@@ -1,9 +1,9 @@
-import content from "../style/content.css"
+import introductiont from "../style/introduction.css"
 
-const Content = () => {
+const Introduction = () => {
     return(
-        <div>
-            <img src="https://i.pinimg.com/236x/5c/bb/04/5cbb0499aa8a3149e20dc0c5b869a548.jpg" />
+        <div className="container">
+            <img src="https://i.pinimg.com/236x/5c/bb/04/5cbb0499aa8a3149e20dc0c5b869a548.jpg" alt=""/>
             <div>
                 <div>
                     <p>ชื่อ : <span>สวรรยา</span> นามสกุล : <span>บุญประจวบ</span></p> 
@@ -45,4 +45,4 @@ const Content = () => {
 }
 
 
-export default Content
+export default Introduction

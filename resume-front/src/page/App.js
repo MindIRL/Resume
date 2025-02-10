@@ -2,14 +2,14 @@
 
 import "../style/app.css"
 import Nav from "../component/Nav";
-import Content from "../component/Content"
+import Introduction from "../page/Introduction"
 
 
 function App() {
   return (
     <div>
         <Nav />
-        <Content />
+        <Introduction />
     </div>
 
 

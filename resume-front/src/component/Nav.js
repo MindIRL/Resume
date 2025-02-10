@@ -15,7 +15,7 @@ const Nav = () => {
             <div className="nav-login">
                 <div><Link to= {"/Login"}>เข้าสู่ระบบ</Link></div>
             </div>
-    </div>
+        </div>
 
     )
 }
