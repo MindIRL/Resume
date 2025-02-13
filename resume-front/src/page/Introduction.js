@@ -1,9 +1,11 @@
-import introductiont from "../style/introduction.css"
+import "../style/introduction.css"
 
 const Introduction = () => {
     return(
         <div className="container">
-            <img src="https://i.pinimg.com/236x/5c/bb/04/5cbb0499aa8a3149e20dc0c5b869a548.jpg" alt=""/>
+            <div className="img">
+                <img src="https://i.pinimg.com/236x/5c/bb/04/5cbb0499aa8a3149e20dc0c5b869a548.jpg" alt=""/>
+            </div>
             <div>
                 <div>
                     <p>ชื่อ : <span>สวรรยา</span> นามสกุล : <span>บุญประจวบ</span></p> 

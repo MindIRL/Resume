@@ -1,0 +1,39 @@
+.container-contact {
+    margin-top: 8%;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transform: translate(0,-100%);
+}
+
+.contact .contact-detail {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contact .contact-detail .contact-icons .fa-facebook {
+    font-size: 25px;
+    color: blue
+}
+
+.contact .contact-detail .contact-icons .fa-square-x-twitter {
+    font-size: 25px;
+}
+
+.contact .contact-detail span {
+    font-size: 17px;
+    font-weight: normal;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.contact .contact-detail .contact-icons {
+    font-family: 'Montserrat', sans-serif;
+}
