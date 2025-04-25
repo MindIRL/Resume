@@ -2,9 +2,9 @@
 import {Link} from "react-router-dom"
 import  "../style/nav.css"
 
-const Nav = () => {
+const Nav = ({NavHeight}) => {
     return(
-        <div className="nav">
+        <div className="nav" ref={NavHeight}>
             <div className="nav-link">
                 <div><Link to={"/"}><i class="fa-solid fa-house"></i> <span>หน้าแรก</span></Link></div>
                 <div><Link to={"/Education"}><i class="fa-solid fa-school"></i> <span>การศึกษา</span></Link></div>

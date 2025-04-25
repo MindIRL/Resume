@@ -3,18 +3,37 @@
 import "../style/app.css"
 import Nav from "../component/Nav";
 import Introduction from "../page/Introduction"
-
+import { useRef , useState , useEffect} from "react";
 
 function App() {
+
+  const NavHeight = useRef(null);
+
+  const [GetNavHeight , SetNavHeight] = useState();
+
+  useEffect(()=>{
+      if(NavHeight.current){
+        SetNavHeight(NavHeight.current.offsetHeight)
+      }else {
+        console.log("ไม่มีข้อมูล")
+      }
+  },[])
+
+  useEffect(()=>{
+      console.log(GetNavHeight)
+  },[GetNavHeight])
+
   return (
-    <div>
-        <Nav />
-        <Introduction />
+    <div className="app">
+        <Nav NavHeight = {NavHeight}/>
+        <Introduction GetNavHeight = {GetNavHeight}/>
     </div>
 
 
 
   );
+
+
 }
 
 export default App;

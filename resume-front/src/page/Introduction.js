@@ -1,7 +1,8 @@
 import "../style/introduction.css"
 import { useState } from "react";
 
-const Introduction = () => {
+
+const Introduction = ({GetNavHeight}) => {
 
     const [Edit , SetEdit] = useState(false)
 
@@ -14,7 +15,7 @@ const Introduction = () => {
     }
 
     return(
-        <div className="container">
+        <div className="container" style={{paddingTop:`${GetNavHeight+10}px`}}>
             <div className="img">
                 <img src="https://i.pinimg.com/236x/5c/bb/04/5cbb0499aa8a3149e20dc0c5b869a548.jpg" alt=""/>
             </div>
