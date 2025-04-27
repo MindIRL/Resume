@@ -25,7 +25,7 @@ body {
 
 .app::before {
     content: "";
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
     top: 0;
     left: 0;

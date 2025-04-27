@@ -19,7 +19,7 @@ const Introduction = ({GetNavHeight}) => {
             <div className="img">
                 <img src="https://i.pinimg.com/236x/5c/bb/04/5cbb0499aa8a3149e20dc0c5b869a548.jpg" alt=""/>
             </div>
-            <div>
+            <div className="info">
                 <div>
                     <p>ชื่อ : <span>สวรรยา</span> นามสกุล : <span>บุญประจวบ</span></p> 
                 </div>
@@ -56,7 +56,7 @@ const Introduction = ({GetNavHeight}) => {
             {Edit && (
                 <div className="popup">
                     <div className="popup-content">
-                        <p>กรุณาล็อคอินเพื่อแก้ไข</p>
+                        <p>กรุณาเข้าสู่ระบบเพื่อแก้ไข</p>
                         <button onClick={CloseEditClick}>ปิด</button>
                     </div>
                 </div>

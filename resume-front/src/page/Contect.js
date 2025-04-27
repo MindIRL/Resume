@@ -1,17 +1,26 @@
 
 import Nav from "../component/Nav"
 import "../style/contect.css"
-import { Shareinfo } from "../ShareInfo"
-import { useContext } from "react"
+import { useState , useRef , useEffect} from "react"
+// import { Shareinfo } from "../ShareInfo"
+// import { useContext } from "react"
 
 const Contect = () => {
 
-    const {GetNavHeight} = useContext(Shareinfo)
+    // const {GetNavHeight} = useContext(Shareinfo)
+
+    const [GetNavHeight , SetNavHeight] = useState()
+    const NavHeight = useRef(null)
+
+    useEffect(()=>{
+        NavHeight.current ? SetNavHeight(NavHeight.current.offsetHeight) : console.log("ไม่มีข้อมูลความสูง Navbar")
+    },[])
+
 
     return(
-        <div className="container-contact">
-            <Nav />
-            <div className="contact" style={{paddingTop:`${GetNavHeight}px`}}>
+        <div className="container-contact" style={{paddingTop:`${GetNavHeight+10}px`}}>
+            <Nav NavHeight = {NavHeight}/>
+            <div className="contact" >
                 <div className="contact-detail">
                     เบอร์โทร : <span>061 - 8569658</span>
                 </div>

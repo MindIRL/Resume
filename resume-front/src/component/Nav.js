@@ -3,6 +3,7 @@ import {Link} from "react-router-dom"
 import  "../style/nav.css"
 
 const Nav = ({NavHeight}) => {
+
     return(
         <div className="nav" ref={NavHeight}>
             <div className="nav-link">
