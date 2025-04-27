@@ -27,27 +27,27 @@ const Introduction = ({GetNavHeight}) => {
                     <p>สัญชาติ : <span>ไทย</span></p> 
                 </div>
                 <div>
-                    <p>อายุ : <span>29</span><i class="fa-solid fa-pen" onClick={ShowEditClick}></i></p> 
+                    <p>อายุ : <span>29</span><i className="fa-solid fa-pen" onClick={ShowEditClick}></i></p> 
                 </div>
                 <div>
                     <p>น้ำหนัก : <span>95 Kg.</span></p> 
                 </div>
                 <div>
-                    <p>GitHub <i class="fa-brands fa-github"></i> : <span>MindIRL</span></p> 
+                    <p>GitHub <i className="fa-brands fa-github"></i> : <span>MindIRL</span></p> 
                 </div>
                 <div>
                     <p>ความรู้พื้นฐานตำแหน่ง Front End Developer <i class="fa-solid fa-computer"></i></p>
                     <div>
-                        <p><i class="fa-brands fa-html5"></i> HTML (Hyper Text Markup Language)</p>
-                        <p><i class="fa-brands fa-css3-alt"></i> CSS (Cascading Style Sheets)</p>
-                        <p><i class="fa-brands fa-js"></i> JavaScript</p>
-                        <p><i class="fa-brands fa-react"></i> React (Frameworks)</p>
+                        <p><i className="fa-brands fa-html5"></i> HTML (Hyper Text Markup Language)</p>
+                        <p><i className="fa-brands fa-css3-alt"></i> CSS (Cascading Style Sheets)</p>
+                        <p><i className="fa-brands fa-js"></i> JavaScript</p>
+                        <p><i className="fa-brands fa-react"></i> React (Frameworks)</p>
                     </div>
                 </div>
                 <div>
                     <p>ความรู้พื้นฐานตำแหน่ง Back End Developer <i class="fa-solid fa-server"></i></p>
                     <div>
-                        <p><i class="fa-brands fa-node"></i> Node.js (Frameworks)</p>
+                        <p><i className="fa-brands fa-node"></i> Node.js (Frameworks)</p>
                         <p>MongoDB (NoSQL Database)</p>
                     </div>
                 </div>

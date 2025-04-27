@@ -4,9 +4,9 @@ import "../style/app.css"
 import Nav from "../component/Nav";
 import Introduction from "../page/Introduction"
 import { useRef , useState , useEffect} from "react";
+import { Shareinfo } from "../ShareInfo";
 
 function App() {
-
   const NavHeight = useRef(null);
 
   const [GetNavHeight , SetNavHeight] = useState();
@@ -15,7 +15,7 @@ function App() {
       if(NavHeight.current){
         SetNavHeight(NavHeight.current.offsetHeight)
       }else {
-        console.log("ไม่มีข้อมูล")
+        console.log("ไม่มีข้อมูลความสูง Navbar")
       }
   },[])
 
@@ -24,10 +24,12 @@ function App() {
   },[GetNavHeight])
 
   return (
-    <div className="app">
-        <Nav NavHeight = {NavHeight}/>
-        <Introduction GetNavHeight = {GetNavHeight}/>
-    </div>
+    <Shareinfo.Provider value={{GetNavHeight}}>
+        <div className="app">
+            <Nav NavHeight = {NavHeight}/>
+            <Introduction GetNavHeight = {GetNavHeight}/>
+        </div>
+    </Shareinfo.Provider>
 
 
 
@@ -39,19 +41,4 @@ function App() {
 export default App;
 
 
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
+    
