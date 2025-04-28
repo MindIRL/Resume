@@ -19,7 +19,7 @@
 .container .img {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .fa-pen:hover{
@@ -35,3 +35,49 @@
     z-index: 1;
 }
 
+.info div:first-child {
+    font-size: 55px;
+    color: whitesmoke;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.info div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+
+    p{
+        margin-left: 30px;
+        font-size: 17px;
+        color: skyblue;
+    }
+
+    span{
+        color: black;
+    }
+
+    p:nth-child(2){
+        i{
+            margin-left: 5px;
+        }
+    }
+
+    p:nth-child(3){
+        i{
+            margin-left: 5px;
+        }
+    }
+
+    p:nth-child(4){
+        i.fa-pen{
+            margin-left: 5px;
+        }
+    }
+}

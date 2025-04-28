@@ -18,7 +18,7 @@ const Contect = () => {
 
 
     return(
-        <div className="container-contact" style={{paddingTop:`${GetNavHeight+10}px`}}>
+        <div className="container-contact" style={{paddingTop:`${GetNavHeight+5}px`}}>
             <Nav NavHeight = {NavHeight}/>
             <div className="contact" >
                 <div className="contact-detail">
