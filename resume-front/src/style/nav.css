@@ -13,6 +13,30 @@
     z-index: 1;
 }
 
+.nav-toggle{
+    display: none;
+    border-radius: 15px;
+    margin-left: 10px;
+    background-color: orange;
+
+    .fa-bars{
+        font-size: 40px;
+        width:45px;
+        height: 45px;
+        padding: 5px;
+        color: white;     
+    }
+}
+
+.nav-toggle:hover{
+    background-color: yellow;
+
+    .fa-bars{
+        color: black;
+    }
+
+}
+
 .nav-link {
     display: flex;
     gap: 25px;

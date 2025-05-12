@@ -1,11 +1,22 @@
 
 import {Link} from "react-router-dom"
 import  "../style/nav.css"
+import { useState } from "react"
 
 const Nav = ({NavHeight}) => {
 
+    const [newclass , setnewclass] = useState(false)
+
+    const addclass =()=> setnewclass(!newclass)
+
+    console.log(newclass)
+
+
     return(
         <div className="nav" ref={NavHeight}>
+            <button className="nav-toggle" onClick={addclass}>
+                <i className="fa fa-bars"></i>
+            </button>
             <div className="nav-link">
                 <div><Link to={"/"}><i className="fa-solid fa-house"></i> <span>หน้าแรก</span></Link></div>
                 <div><Link to={"/Education"}><i className="fa-solid fa-school"></i> <span>การศึกษา</span></Link></div>
