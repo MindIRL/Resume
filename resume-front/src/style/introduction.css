@@ -10,9 +10,8 @@
 }
 
 .container .img img {
-    max-width: 100%;
-    max-height: 100%;
-    z-index: 1;
+    max-width: 350px;
+    max-height: 300px;
     border-radius: 45px;
 }
 
@@ -27,13 +26,33 @@
     cursor: pointer;
 }
 
-.container .info{
-    z-index: 1;
+
+
+div.btn{
+    text-align: center;
+    margin-top: 15px;
+
+    button{
+        border-radius: 15px;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 1rem;
+        background-color: pink;
+        color: black;
+    }
+
 }
 
-.popup {
-    z-index: 1;
+div.btn button:hover {
+    background-color: palevioletred;
 }
+
+div.btn button:active{
+    transform: scale(0.96);
+}
+
+
+
 
 .info div:first-child {
     font-size: 55px;

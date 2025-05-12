@@ -39,6 +39,7 @@
 
 .nav-link {
     display: flex;
+    /* flex-wrap: wrap; */
     gap: 25px;
     justify-content: space-around;
     margin-left: 25px;
@@ -72,7 +73,14 @@
     padding: 10px 15px;
 }
 
+
+
 .nav-link a:hover {
+    background-color: yellow;
+    color: black;
+}
+
+.nav-link a.important{
     background-color: yellow;
     color: black;
 }
@@ -94,6 +102,8 @@
     background-color: greenyellow;
     color: black;
 }
+
+
 
 
 /* display: inline-block; */

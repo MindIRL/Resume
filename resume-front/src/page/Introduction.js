@@ -12,7 +12,7 @@ const Introduction = ({GetNavHeight}) => {
 
 
     return(
-        <div className="container" style={{paddingTop:`${GetNavHeight+5}px`}}>
+        <div className="container" style={{paddingTop:`${GetNavHeight}px`}}>
             <div className="img">
                 <img src="https://i.pinimg.com/236x/5c/bb/04/5cbb0499aa8a3149e20dc0c5b869a548.jpg" alt=""/>
             </div>
@@ -26,6 +26,9 @@ const Introduction = ({GetNavHeight}) => {
                     <p>อายุ : <span>29</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p>
                     <p>น้ำหนัก : <span>95 Kg.</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p> 
                     <p>GitHub <i className="fa-brands fa-github"></i> : <span>MindIRL</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p> 
+                </div>
+                <div className="btn">
+                    <button>Download Resume</button>
                 </div>
                 {/* <div className="front-end">
                     <p>ความรู้พื้นฐานตำแหน่ง Front End Developer <i class="fa-solid fa-computer"></i></p>

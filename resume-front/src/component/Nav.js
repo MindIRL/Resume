@@ -22,6 +22,7 @@ const Nav = ({NavHeight}) => {
                 <div><Link to={"/Education"}><i className="fa-solid fa-school"></i> <span>การศึกษา</span></Link></div>
                 <div><Link to={"/Job"}><i className="fa-solid fa-award"></i> <span>การทำงาน</span></Link></div>
                 <div><Link to={"/Contect"}><i className="fa-solid fa-phone-volume"></i> <span>ติดต่อ</span></Link></div>
+                <div><Link  className="important"><span>ความรู้พื้นฐาน Front & Back End Developer</span></Link></div>
             </div>
 
             <div className="nav-login">
