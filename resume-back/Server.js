@@ -4,6 +4,7 @@ const cors = require("cors")
 const mongoose = require("mongoose")
 require("dotenv").config()
 const info_route = require("./route/info")
+const auth_routh = require('./route/auth')
 
 
 
@@ -25,6 +26,7 @@ app.use(morgan("dev"))
 
 
 app.use("/api" , info_route)
+app.use('/api' , auth_routh)
 
 
 
