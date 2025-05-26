@@ -1,3 +1,5 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); */
+
 .container {
     /* margin-top: 8%; */
     display: flex;
@@ -28,21 +30,6 @@
 
 
 
-div.btn{
-    text-align: center;
-    margin-top: 15px;
-
-    button{
-        border-radius: 15px;
-        padding: 10px;
-        font-weight: bold;
-        font-size: 1rem;
-        background-color: pink;
-        color: black;
-    }
-
-}
-
 div.btn button:hover {
     background-color: palevioletred;
 }
@@ -52,11 +39,23 @@ div.btn button:active{
 }
 
 
+.info div:first-child p:first-child {
+    font-family: "Kanit", sans-serif;
+    font-weight: 700;
+}
 
+
+.info div:first-child p:nth-child(2) {
+    font-family: "Caveat", cursive;
+    font-weight: 900;
+    font-size: larger;
+
+}
 
 .info div:first-child {
     font-size: 55px;
-    color: whitesmoke;
+    color: black;
+    text-shadow: 7px 7px 5px rgba(0, 255, 0, 0.3) , 1px 1px 3px #FFFF00;
     text-align: center;
     display: flex;
     align-items: center;
@@ -71,32 +70,40 @@ div.btn button:active{
     color: black;
     font-size: 17px;
     font-weight: bold;
+}
 
-    p{
+.info div:nth-child(2) p{
         margin-left: 30px;
         font-size: 17px;
         color: skyblue;
-    }
+}
 
-    span{
+.info div:nth-child(2) p span{
+        color: black;
+}
+
+.info div:nth-child(2)  p:nth-child(2) i{
+            margin-left: 5px;
+}
+
+.info div:nth-child(2)  p:nth-child(3) i{
+            margin-left: 5px;
+}
+
+.info div:nth-child(2) p:nth-child(4) i.fa-pen{
+            margin-left: 5px;
+}
+
+div.btn{
+    text-align: center;
+    margin-top: 15px;
+}
+
+div.btn button{
+        border-radius: 15px;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 1rem;
+        background-color: pink;
         color: black;
     }
-
-    p:nth-child(2){
-        i{
-            margin-left: 5px;
-        }
-    }
-
-    p:nth-child(3){
-        i{
-            margin-left: 5px;
-        }
-    }
-
-    p:nth-child(4){
-        i.fa-pen{
-            margin-left: 5px;
-        }
-    }
-}
