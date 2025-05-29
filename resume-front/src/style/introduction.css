@@ -1,20 +1,20 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); */
 
 .container {
     /* margin-top: 8%; */
     display: flex;
     /* flex-direction: column; */
     justify-content: center;
-    /* align-items: center; */
+    align-items: center;
     gap: 45px;
     width: 100%;
     height: 100%;
 }
 
 .container .img img {
-    max-width: 350px;
-    max-height: 300px;
+    width: 300px;
+    height: 350px;
     border-radius: 45px;
+    box-shadow: 4px 3px 5px orange , -3px -2px 5px orangered; 
 }
 
 .container .img {
@@ -75,7 +75,7 @@ div.btn button:active{
 .info div:nth-child(2) p{
         margin-left: 30px;
         font-size: 17px;
-        color: skyblue;
+        color: red;
 }
 
 .info div:nth-child(2) p span{
@@ -100,10 +100,18 @@ div.btn{
 }
 
 div.btn button{
-        border-radius: 15px;
-        padding: 10px;
-        font-weight: bold;
-        font-size: 1rem;
-        background-color: pink;
-        color: black;
-    }
+    font-family: "Caveat", cursive;
+    border-radius: 15px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 23px;
+    background-color: pink;
+    color: black;
+}
+
+.personal-info p {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 2px #000
+}

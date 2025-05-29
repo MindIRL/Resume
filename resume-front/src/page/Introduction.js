@@ -1,5 +1,6 @@
 import "../style/introduction.css"
 import { useNavigate } from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
 const Introduction = ({GetNavHeight}) => {
@@ -21,7 +22,7 @@ const Introduction = ({GetNavHeight}) => {
                     <p>สวรรยา บุญประจวบ</p> 
                     <p>Sawanya Boonprajuab</p> 
                 </div>
-                <div>
+                <div className="personal-info">
                     <p>สัญชาติ : <span>ไทย</span></p> 
                     <p>อายุ : <span>29</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p>
                     <p>น้ำหนัก : <span>95 Kg.</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p> 
