@@ -26,6 +26,7 @@ const Introduction = ({GetNavHeight}) => {
                     <p>สัญชาติ : <span>ไทย</span></p> 
                     <p>อายุ : <span>29</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p>
                     <p>น้ำหนัก : <span>95 Kg.</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p> 
+                    <p>ส่วนสูง : <span>169 m</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p>
                     <p>GitHub <i className="fa-brands fa-github"></i> : <span>MindIRL</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p> 
                 </div>
                 <div className="btn">

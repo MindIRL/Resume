@@ -6,6 +6,9 @@ import Contect from "./page/Contect"
 import EditInfo from "./page/EditInfo"
 import AdminRoute from "./AdminRoute"
 import Login from "./page/Login"
+import AddForm from "./page/Add-form"
+import EditForm from "./page/Edit-form"
+
 
 const MyRoute = () => {
     return(
@@ -21,7 +24,8 @@ const MyRoute = () => {
                 </Route>
                 {/* สร้าง Token ตอน login */}
                 <Route path="/Login" element={<Login />}></Route>
-
+                <Route path="/Add-form" element={<AddForm />}/>
+                <Route path="/Edit-form" element={<EditForm />}/>
             </Routes>
         </BrowserRouter>
 

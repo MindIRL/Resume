@@ -26,6 +26,12 @@ const Nav = ({NavHeight}) => {
             </div>
 
             <div className="nav-login">
+                <div className="form-selection"><i class="fa-solid fa-file" style={{marginRight:"2px"}}></i> ฟอร์ม <i class="fa-solid fa-caret-down" style={{marginLeft:"4px" , color:"#c41411"}}></i>
+                    <div className="form-option">
+                        <Link to = {"/Add-form"}><div><i class="fa-regular fa-pen-to-square" style={{marginRight:"2px"}}></i> บันทึกข้อมูล</div></Link>
+                        <Link to = {"/Edit-form"}><div><i class="fa-solid fa-wrench" style={{marginRight:"2px"}}></i> แก้ไขข้อมูล</div></Link>
+                    </div>
+                </div>
                 <div><Link to= {"/Login"}><i className="fa-solid fa-user-pen"></i> <span>เข้าสู่ระบบ</span></Link></div>
             </div>
         </div>

@@ -73,7 +73,7 @@ div.btn button:active{
 }
 
 .info div:nth-child(2) p{
-        margin-left: 30px;
+        margin-left: 10px;
         font-size: 17px;
         color: red;
 }
@@ -91,6 +91,10 @@ div.btn button:active{
 }
 
 .info div:nth-child(2) p:nth-child(4) i.fa-pen{
+            margin-left: 5px;
+}
+
+.info div:nth-child(2) p:nth-child(5) i.fa-pen{
             margin-left: 5px;
 }
 
@@ -114,4 +118,8 @@ div.btn button{
     padding: 10px;
     border-radius: 6px;
     box-shadow: 2px 2px 2px #000
+}
+
+.info {
+    transform: translateY(-20px);
 }

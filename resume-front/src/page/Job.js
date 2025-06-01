@@ -1,5 +1,6 @@
 
 import Nav from "../component/Nav"
+import "../style/job.css"
 import { useRef , useEffect , useState } from "react"
 
 
@@ -15,13 +16,13 @@ const Job = () => {
     },[])
 
     return(
-        <div style={{paddingTop:`${GetNavHeight}px`}}>
+        <div className="Education-container" style={{paddingTop:`${GetNavHeight}px`}}>
             <Nav NavHeight = {NavHeight}/>
-            <div>
-                <div>ประสบการณ์การทำงาน</div>
+            <div className="Education-titel">
+                <span>ประสบการณ์การทำงาน</span>
             </div>
-            <div>
-                <img></img>
+            <div className="Education-detail">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1vObf-YiT9-XcqfXIX25Hw7O_frb_MnjxfQ&s"></img>
                 <div>
                     <div>
                         <strong>บริษัท : </strong>
@@ -55,8 +56,8 @@ const Job = () => {
                 </div>
             </div>
 
-            <div>
-                <img></img>
+            <div className="Education-detail">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWcQzh44qhFluFuZ-oeF3qrD6sxeGeKP9xw&s"></img>
                 <div>
                     <div>
                         <strong>บริษัท : </strong>
@@ -94,8 +95,8 @@ const Job = () => {
                 </div>
             </div>
 
-            <div>
-                <img></img>
+            <div className="Education-detail">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sVSXh61ssUUKx2G-ks6gwt_XGaI6UJWbnA&s"></img>
                 <div>
                     <div>
                         <strong>บริษัท : </strong>
