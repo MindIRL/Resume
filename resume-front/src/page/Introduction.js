@@ -13,7 +13,7 @@ const Introduction = ({GetNavHeight}) => {
 
 
     return(
-        <div className="container" style={{paddingTop:`${GetNavHeight}px`}}>
+        <div className="container" style={{paddingTop:`${GetNavHeight+10}px`}}>
             <div className="img">
                 <img src="https://i.pinimg.com/236x/5c/bb/04/5cbb0499aa8a3149e20dc0c5b869a548.jpg" alt=""/>
             </div>
@@ -32,22 +32,6 @@ const Introduction = ({GetNavHeight}) => {
                 <div className="btn">
                     <button>Download Resume</button>
                 </div>
-                {/* <div className="front-end">
-                    <p>ความรู้พื้นฐานตำแหน่ง Front End Developer <i class="fa-solid fa-computer"></i></p>
-                    <div>
-                        <i className="fa-brands fa-html5"></i>
-                        <i className="fa-brands fa-css3-alt"></i>
-                        <i className="fa-brands fa-js"></i>
-                        <i className="fa-brands fa-react"></i>
-                    </div>
-                </div>
-                <div className="back-end">
-                    <p>ความรู้พื้นฐานตำแหน่ง Back End Developer <i class="fa-solid fa-server"></i></p>
-                    <div>
-                        <i className="fa-brands fa-node"></i>
-                        <span>MongoDB (NoSQL Database)</span>
-                    </div>
-                </div> */}
             </div>
 
             {/* {Edit && (

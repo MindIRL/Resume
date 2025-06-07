@@ -1,0 +1,65 @@
+
+
+.edit-form-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.title-edit-form {
+    font-size: 25px;
+    font-weight: bold;
+    border-bottom: 2px dashed black;
+}
+
+.box-edit-form {
+    height: auto;
+    width: 300px;
+}
+
+.box-edit-form form div label {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+.box-edit-form form div {
+    margin: 5px 0;
+}
+
+.box-edit-form form div input {
+    display: block;
+    width: 100%;
+    height: 30px;
+    outline: none;
+    font-size: 15px;
+}
+
+.box-edit-form form div ol li {
+    margin-bottom: 5px;
+}
+
+.box-edit-form form div ol {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.box-edit-form form div ol span {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+
+.fa-square-plus {
+    margin-right: 5px;
+}
+
+input[type = "submit"] {
+    font-size: 15px;
+    font-weight: bold;
+    display: flex;
+    justify-self: center;
+}

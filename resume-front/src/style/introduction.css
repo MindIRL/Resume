@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
 .container {
     /* margin-top: 8%; */
     display: flex;
@@ -40,8 +40,9 @@ div.btn button:active{
 
 
 .info div:first-child p:first-child {
-    font-family: "Kanit", sans-serif;
-    font-weight: 700;
+    /* font-family: "Kanit", sans-serif; */
+    font-family: "Pattaya", sans-serif;
+    font-weight: 1000;
 }
 
 

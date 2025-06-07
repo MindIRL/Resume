@@ -1,0 +1,25 @@
+.front-end p {
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 2px solid black;
+}
+
+.back-end p {
+    font-size: 20px;
+    font-weight: bold;  
+    border-bottom: 2px solid black;
+}
+
+.knowledge-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.front-end ol li , .back-end ol li {
+    line-height: 2;
+}
+
+/* .front-end , .back-end {
+    border-right: 2px solid gray;
+} */

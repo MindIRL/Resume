@@ -8,10 +8,11 @@ import AdminRoute from "./AdminRoute"
 import Login from "./page/Login"
 import AddForm from "./page/Add-form"
 import EditForm from "./page/Edit-form"
+import Knowledge from "./page/Know-ledge"
 
 
-const MyRoute = () => {
-    return(
+function MyRoute() {
+    return (
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App />} />
@@ -20,12 +21,13 @@ const MyRoute = () => {
                 <Route path="/Contect" element={<Contect />} />
                 {/* ต้องมี Token ถึงจะเข้าหน้านี้ได้ */}
                 <Route element={<AdminRoute />}>
-                    <Route path="/blog/edit/:slug" element={<EditInfo />}/>
+                    <Route path="/blog/edit/:slug" element={<EditInfo />} />
                 </Route>
                 {/* สร้าง Token ตอน login */}
                 <Route path="/Login" element={<Login />}></Route>
-                <Route path="/Add-form" element={<AddForm />}/>
-                <Route path="/Edit-form" element={<EditForm />}/>
+                <Route path="/Add-form" element={<AddForm />} />
+                <Route path="/Edit-form" element={<EditForm />} />
+                <Route path="/Knowledge" element={<Knowledge />} />
             </Routes>
         </BrowserRouter>
 
