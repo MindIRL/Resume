@@ -30,7 +30,9 @@ const Introduction = ({GetNavHeight}) => {
                     <p>GitHub <i className="fa-brands fa-github"></i> : <span>MindIRL</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p> 
                 </div>
                 <div className="btn">
-                    <button>Download Resume</button>
+                    <a href="https://www.youtube.com/" target="blank_"download>
+                        <button>Download Resume</button>
+                    </a>
                 </div>
             </div>
 

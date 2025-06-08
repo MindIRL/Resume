@@ -21,7 +21,7 @@ const AddForm = () => {
             <div className="form-container">
                 <div className="box-form">
                     <div className="title-form">ข้อมูลส่วนตัว</div>
-                    <form>
+                    <form  enctype="multipart/form-data">
                         <div>
                             <label>สัญชาติ</label>
                             <input />
@@ -44,7 +44,7 @@ const AddForm = () => {
                         </div>
                         <div>
                             <label>Resume File</label>
-                            <input type="file"/>
+                            <input type="file" name="resume"/>
                         </div>
                         <input type="submit" value="บันทุกข้อมูล"/>
                     </form>
@@ -74,6 +74,10 @@ const AddForm = () => {
                         <div>
                             <label>ช่วงเวลาที่ทำงาน</label>
                             <input />
+                        </div>
+                        <div>
+                            <label>Image File</label>
+                            <input type="file" name="image"/>
                         </div>
                         <div>
                             <label>รายละเอียดการทำงาน</label>

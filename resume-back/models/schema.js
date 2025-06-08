@@ -1,7 +1,11 @@
 const mongoose = require("mongoose")
 
 
-const schema = mongoose.Schema({
+const PersonalSchema = mongoose.Schema({
+    nationality:{
+        type:String ,
+        require:false
+    },
     age:{
         type:String ,
         required:false
@@ -10,29 +14,17 @@ const schema = mongoose.Schema({
         type:String ,
         required:false
     },
+    height:{
+        type:String ,
+        required:false
+    },
     github:{
         type:String,
         required:false
     },
-    FrontEndknowledge:{
-        type:String,
-        required:false
-    },
-    BackEndknowledge:{
-        type:String,
-        required:false
-    },
-    experience:{
-        type:String,
-        required:false
-    },
-    anotherSkills:{
-        type:String,
-        required:false
-    },
-    admin:{
-        type:String,
-        default:"MindIRL"
+    ResumeFile:{
+        data: Buffer,
+        contentType: String
     },
     slug:{
         type:String,
@@ -44,4 +36,65 @@ const schema = mongoose.Schema({
 },{timestamps:true})
 
 
-module.exports = mongoose.model("informations",schema)
+const WorkSchema = mongoose.Schema({
+    company:{
+        type:String,
+        required:false
+    },
+    position:{
+        type:String,
+        required:false
+    },
+    province:{
+        type:String,
+        required:false
+    },
+    location:{
+        type:String,
+        required:false
+    },
+    WorkingTime:{
+        type:String,
+        required:false
+    },
+    ImageFile:{
+
+    },
+    WorkDetails:{
+        experiences: [{ type: String }] 
+    },
+    slug:{
+        type:String,
+        lowercase:true,
+        unique:true
+    }
+
+
+},{timestamps:true})
+
+
+const KnowledgeSchema = mongoose.Schema({
+    FrontEnd:{
+        experiences:[{type:String}]
+    },
+    BackEnd:{
+        experiences:[{type:String}]
+    },
+    slug:{
+        type:String,
+        lowercase:true,
+        unique:true
+    }
+
+
+},{timestamps:true})
+
+const Personal = mongoose.model("PersonalSchema",PersonalSchema)
+const Work = mongoose.model("WorkSchema" , WorkSchema)
+const Knowledge = mongoose.model("KnowledgeSchema" , KnowledgeSchema)
+
+module.exports = {
+    Personal ,
+    Work ,
+    Knowledge
+}
