@@ -10,14 +10,14 @@ const upload = require("../Image/multer");
 router.post('/create-Personal-info' , upload.single("resume") , create)
 router.get('/informations' , getAllinfo)
 router.get('/one-information/:slug' , singleInfo)
-router.put('/update-information/:slug' , updateInfo)
+router.put('/update-information/:slug', upload.single("resume") , updateInfo)
 
 
 //Work
-router.post('/create-Work-info', upload.single('image') , createWork )
+router.post('/create-Work-info', upload.single("Image"), createWork )
 router.get('/Workinformations' , getAllWorkinfo)
 router.get('/Work-one-information/:slug' , singleWorkInfo)
-router.put('/Work-update-information/:slug' , updateWorkInfo)
+router.put('/Work-update-information/:slug' , upload.single("Image") , updateWorkInfo)
 
 //Knowledge
 router.post('/create-Knowledge-info' , createKnowledge)

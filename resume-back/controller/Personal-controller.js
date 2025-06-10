@@ -6,9 +6,11 @@ const {v4:uuidv4} = require("uuid")
 // ข้อมูลส่วนตัว
 
 //สร้างข้อมูล
-exports.create = (req , res) => {
+exports.create = async (req , res) => {
     const{nationality,age,weight,height,github} = req.body
     let slug = uuidv4()
+
+    const Data = {nationality,age,weight,height,github,slug}
 
     const ResumeFile = req.file ? {
         data: req.file.buffer,
@@ -16,13 +18,23 @@ exports.create = (req , res) => {
       }
     : undefined;
 
-    Personal.create({nationality,age,weight,height,github,ResumeFile,slug},(err,info)=>{
+    if(ResumeFile){
+        Data.ResumeFile = ResumeFile
+    }
+
+    try{
+        const Info = await Personal.create(Data)
+        res.json(Info)
+    }
+    catch(err) {
         if(err){
             console.log(err)
             return res.status(400).json({error:"ไม่สามารถบันทึกข้อมูลได้"})
         }
-        res.json(info)
-    })
+    }
+
+        
+  
 }
 
 //ดึงข้อมูลทั้งหมด
@@ -52,7 +64,13 @@ exports.singleInfo = (req , res) => {
 exports.updateInfo = (req , res) => {
     const {slug} = req.params
     const {nationality,age,weight,height,github} = req.body
-    Personal.findOneAndUpdate({slug},{nationality,age,weight,height,github},{new:true}).exec((err,info)=>{
+
+    const ResumeFile = req.file ?
+        {data:req.file.buffer ,
+         contentType:req.file.mimetype
+        }
+        :
+    Personal.findOneAndUpdate({slug},{nationality,age,weight,height,github,ResumeFile},{new:true}).exec((err,info)=>{
         if(err){
             console.log(err)
             return res.status(400).json({error:"ไม่สามารถแก้ไขข้อมูลได้"})

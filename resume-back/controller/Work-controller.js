@@ -5,15 +5,14 @@ const {v4:uuidv4} = require("uuid")
 
 //สร้างข้อมูล
 exports.createWork = (req , res) => {
-    const {company, position , province , location , WorkingTime , WorkDetails} = req.body
+    const {company, position , province , location , WorkingTime , WorkDetails , ImageURL} = req.body
     let slug = uuidv4()
+    
+    const Data = {company, position , province , location , WorkingTime , WorkDetails , ImageURL, slug }
 
-        const ImageFile = req.file ? {
-        data: req.file.buffer,
-        contentType: req.file.mimetype,
-        } 
-        : undefined;
-    Work.create({company, position , province , location , WorkingTime , ImageFile , WorkDetails , slug},(err , info)=>{
+    req.file ? Data.ImageFile = {data:req.file.buffer , contentType:req.file.mimetype} : null
+
+    Work.create(Data ,(err , info)=>{
         if(err){
             console.log(err)
             return res.status(400).json({error:"ไม่สามารถบันทึกข้อมูลได้"})
@@ -49,8 +48,13 @@ exports.singleWorkInfo = (req , res) => {
 //อัพเดพข้อมูล
 exports.updateWorkInfo = (req , res) => {
     const {slug} = req.params
-    const{company, position , province , location , WorkingTime , WorkDetails} = req.body
-    Work.findOneAndUpdate({slug},{company, position , province , location , WorkingTime , WorkDetails},{new:true}).exec((err , info) =>{
+    const{company, position , province , location , WorkingTime , WorkDetails , ImageURL} = req.body
+
+    const Data = {company, position , province , location , WorkingTime , WorkDetails , ImageURL}
+
+    req.file ? Data.ImageFile = {data:req.file.buffer , contentType:req.file.mimetype} : null
+
+    Work.findOneAndUpdate({slug},Data,{new:true}).exec((err , info) =>{
         if(err){
             console.log(err)
             return res.status(400).json({error:"ไม่สามารถอัพเดทข้อมูลได้"})
@@ -58,3 +62,4 @@ exports.updateWorkInfo = (req , res) => {
         res.json(info)
     })
 }
+

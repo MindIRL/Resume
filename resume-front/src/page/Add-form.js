@@ -76,8 +76,11 @@ const AddForm = () => {
                             <input />
                         </div>
                         <div>
-                            <label>Image File</label>
-                            <input type="file" name="image"/>
+                            <label>Image URL</label>
+                            <input placeholder="URL ใส่ช่องนี้"/>
+                            <div>
+                                <input type="file" name="Image"/>
+                            </div>
                         </div>
                         <div>
                             <label>รายละเอียดการทำงาน</label>

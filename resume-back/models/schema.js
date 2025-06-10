@@ -24,7 +24,7 @@ const PersonalSchema = mongoose.Schema({
     },
     ResumeFile:{
         data: Buffer,
-        contentType: String
+        contentType: String 
     },
     slug:{
         type:String,
@@ -57,9 +57,14 @@ const WorkSchema = mongoose.Schema({
         type:String,
         required:false
     },
-    ImageFile:{
-
-    },
+    ImageURL:{
+        type:String
+    } ,
+    ImageFile :{
+        data:Buffer ,
+        contentType:String 
+    }
+    ,
     WorkDetails:{
         experiences: [{ type: String }] 
     },
