@@ -76,6 +76,7 @@ const EditForm = () => {
                             <input />
                         </div>
                         <div>
+                            <label>Image URL</label>
                             <input placeholder="URL ใส่ช่องนี้"/>
                             <div>
                                 <input type="file" name="Image"/>

@@ -12,7 +12,7 @@ exports.create = async (req , res) => {
 
     const Data = {nationality,age,weight,height,github,slug}
 
-    const ResumeFile = req.file ? {
+    const {ResumeFile} = req.file ? {
         data: req.file.buffer,
         contentType: req.file.mimetype,
       }
@@ -24,7 +24,7 @@ exports.create = async (req , res) => {
 
     try{
         const Info = await Personal.create(Data)
-        res.json(Info)
+        return res.json(Info)
     }
     catch(err) {
         if(err){
@@ -38,30 +38,60 @@ exports.create = async (req , res) => {
 }
 
 //ดึงข้อมูลทั้งหมด
-exports.getAllinfo = (req , res) => {
-    Personal.find({}).exec((err,info)=>{
-        if(err){
-            console.log(err)
-            return res.status(400).json({error:"ไม่สามารถเรียกข้อมูลทั้งหมดได้"})
-        }
-        res.json(info)
-    })
+exports.getAllinfo = async (req , res) => {
+
+    try{
+        const Info = await Personal.find({})
+        return res.json(Info)
+    }
+    catch(err){
+        console.log(err)
+        return res.status(400).json({error:"ไม่สามารถเรียกข้อมูลทั้งหมดได้"})
+    }
+
 }
 
 //ดึงข้อมูลอันเดียว
-exports.singleInfo = (req , res) => {
+exports.singleInfo = async (req , res) => {
     const {slug} = req.params
-    Personal.findOne({slug}).exec((err,info)=>{
-        if(err){
-            console.log(err)
-            return res.status(400).json({error:"ไม่พบข้อมูลที่ค้นหา"})
+
+    try{
+        const Info = await Personal.findOne({slug})
+
+        if(!Info){
+            return res.status(404).json({message:"ไม่พบข้อมูลที่ค้นหา"})
+        }else{
+            return res.status(200).json(Info)
         }
-        res.json(info)
-    })
+        
+    }
+    catch(err){
+        console.log(err)
+        return res.status(400).json({error:"ไม่พบข้อมูลที่ค้นหา"})
+    }
+
+}
+
+//ลบข้อมูล
+exports.deleteSingleInfo = async (req , res)  => {
+    const {slug} = req.params
+
+    try{
+        const Info = await Personal.findOneAndDelete({slug})
+        if(!Info){
+            return res.status(404).json({message:"ไม่พบข้อมูลที่ต้องการลบ"})
+        }else{
+            return res.status(200).json({message:"ลบข้อมูลสำเร็จ" , data:Info})
+        }        
+    }
+    catch(err){
+        console.log(err)
+        return res.status(400).json({error:"ลบข้อมูลไม่สำเร็จ"})
+    }
 }
 
 //อัพเดพข้อมูล
-exports.updateInfo = (req , res) => {
+exports.updateInfo = async (req , res) => {
     const {slug} = req.params
     const {nationality,age,weight,height,github} = req.body
 
@@ -69,13 +99,23 @@ exports.updateInfo = (req , res) => {
         {data:req.file.buffer ,
          contentType:req.file.mimetype
         }
-        :
-    Personal.findOneAndUpdate({slug},{nationality,age,weight,height,github,ResumeFile},{new:true}).exec((err,info)=>{
-        if(err){
-            console.log(err)
-            return res.status(400).json({error:"ไม่สามารถแก้ไขข้อมูลได้"})
-        }
-        res.json(info)
+        : nall
 
-    })
+    const Data = {nationality,age,weight,height,github}
+
+    ResumeFile ? Data.ResumeFile = ResumeFile : nall
+    
+    try{
+        const Info = await Personal.findOneAndUpdate({slug},Data,{new:true})
+        if(!Info){
+            return res.status(404).json({message:"ไม่พบข้อมูลที่ต้องการแก้ไข"})
+        }else{
+            return res.statu(200).json({message:"อัพเดทข้อมูลสำเร็จ" , data:Info}) 
+        }       
+    }
+    catch(err) {
+        console.log(err)
+        return res.status(400).json({error:"ไม่สามารถแก้ไขข้อมูลได้"})
+    }
+
 }

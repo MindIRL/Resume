@@ -6,50 +6,89 @@ const {v4:uuidv4} = require("uuid")
 
 
 //สร้างข้อมูล
-exports.createKnowledge = (req , res) =>{
+exports.createKnowledge = async (req , res) =>{
     const {FrontEnd, BackEnd} = req.body
     let slug = uuidv4()
-    Knowledge.create({FrontEnd, BackEnd , slug},(err,info)=>{
-        if(err){
-            console.log(err)
-            return res.status(400).json({error:"ไม่สามารถบันทึกข้อมูลได้"})
-        }
-        res.json(info)
-    })
+
+    try{
+        const Info = await Knowledge.create({FrontEnd, BackEnd , slug})
+        return res.json(Info)
+    }
+    catch(err){
+        console.log(err)
+        return res.status(400).json({error:"ไม่สามารถบันทึกข้อมูลได้"})
+    }
 }
 
 //ดึงข้อมูลทั้งหมด
-exports.getAllKnowledgeInfo = (req , res) =>{
-    Knowledge.find({}).exec((err , info)=>{
-        if(err){
-            console.log(err)
-            return res.status(400).json({error:'ไม่สามารถดึงข้อมูลทั้งหมดได้'})
-        }
-        res.json(info)
-    })
+exports.getAllKnowledgeInfo = async (req , res) =>{
+
+    try{
+        const Info = await Knowledge.find({})
+        return res.json(Info)
+    }
+    catch(err){
+        console.log(err)
+        return res.status(400).json({error:'ไม่สามารถดึงข้อมูลทั้งหมดได้'})
+    }
+
 }
 
 //ดึงข้อมูลอันเดียว
-exports.singleKnowledgeInfo = (req , res) =>{
+exports.singleKnowledgeInfo = async (req , res) =>{
     const {slug} = req.params
-    Knowledge.findOne({slug}).exec((err , info)=>{
-        if(err){
-            console.log(err)
-            return res.status(400).json({error:"ไม่สามารถดึงข้อมูลได้"})
+
+    try{
+        const Info = await  Knowledge.findOne({slug})
+        if(!Info){
+            return res.status(404).json({message:"ไม่พบข้อมูลที่ค้นหา"})
+        }else {
+            return res.status(200).json(Info)
         }
-        res.json(info)
-    })
+    }
+    catch(err){
+        console.log(err)
+        return res.status(400).json({error:"ไม่สามารถดึงข้อมูลได้"})
+    }
+    
+}
+
+//ลบข้อมูล
+exports.DeleteSingleKnowledgeInfo = async (req , res) =>{
+    const {slug} = req.params
+
+    try{
+        const Info = await Knowledge.findOneAndDelete({slug})
+        if(!Info){
+            return res.status(404).json({message:"ไม่พบข้อมูลที่ต้องการลบ"})
+        }else{
+            return res.status(200).json({message:"ลบข้อมูลเรียบร้อย" , data:Info})
+        }
+    }
+    catch(err){
+        console.log(err)
+        return res.status(400).json({error:"ไม่สามารถลบข้อมูลที่ต้องการได้"})
+    }
+
+
 }
 
 //อัพเดทข้อมูล
-exports.updateKnowledgeInfo = (req , res) =>{
+exports.updateKnowledgeInfo = async (req , res) =>{
     const {slug} = req.params
     const {FrontEnd, BackEnd} = req.body
-    Knowledge.findOneAndUpdate({slug},{FrontEnd, BackEnd},{new:true}).exec((err , info)=>{
-        if(err){
-            console.log(err)
-            return res.status(400).json({error:"ไม่สามารถอัพเดทข้อมูลได้"})
+
+    try{
+        const Info = await Knowledge.findOneAndUpdate({slug},{FrontEnd, BackEnd},{new:true})
+        if(!Info){
+            return res.status(404).json({message:"ไม่พบข้อมูลที่ต้องการอัพเดท"})
+        }else {
+            return res.status(200).json({message:"อัพเดทข้อมูลเรียบร้อย" , data:Info})
         }
-        res.json(info)
-    })
+    }
+    catch(err){
+        console.log(err)
+        return res.status(400).json({error:"ไม่สามารถอัพเดทข้อมูลได้"})
+    }
+    
 }
