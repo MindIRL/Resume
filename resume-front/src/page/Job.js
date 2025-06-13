@@ -22,7 +22,7 @@ const Job = () => {
                 <span>ประสบการณ์การทำงาน</span>
             </div>
             <div className="Education-detail">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1vObf-YiT9-XcqfXIX25Hw7O_frb_MnjxfQ&s"></img>
+                <img alt="BAGS Ground Services Company Limited" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1vObf-YiT9-XcqfXIX25Hw7O_frb_MnjxfQ&s"></img>
                 <div>
                     <div>
                         <strong>บริษัท : </strong>
@@ -57,7 +57,7 @@ const Job = () => {
             </div>
 
             <div className="Education-detail">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWcQzh44qhFluFuZ-oeF3qrD6sxeGeKP9xw&s"></img>
+                <img alt = "บริษัท รัตนากร แอสเซท จำกัด" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHWcQzh44qhFluFuZ-oeF3qrD6sxeGeKP9xw&s"></img>
                 <div>
                     <div>
                         <strong>บริษัท : </strong>
@@ -96,7 +96,7 @@ const Job = () => {
             </div>
 
             <div className="Education-detail">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sVSXh61ssUUKx2G-ks6gwt_XGaI6UJWbnA&s"></img>
+                <img alt="บริษัท บ้านอำเภอเทรดดิ้ง จำกัด" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6sVSXh61ssUUKx2G-ks6gwt_XGaI6UJWbnA&s"></img>
                 <div>
                     <div>
                         <strong>บริษัท : </strong>

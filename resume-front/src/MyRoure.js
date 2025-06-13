@@ -6,7 +6,7 @@ import Contect from "./page/Contect"
 import EditInfo from "./page/EditInfo"
 import AdminRoute from "./AdminRoute"
 import Login from "./page/Login"
-import AddForm from "./page/Add-form"
+import AddForm from "./page/ADD-form/Add-form"
 import EditForm from "./page/Edit-form"
 import Knowledge from "./page/Know-ledge"
 

@@ -21,7 +21,7 @@ const Education = () => {
                 <span>มหาวิทยาลัยเกษมบัณฑิต <span className="font-Caveat">(Kasem Bundit University)</span></span>
             </div>
             <div className="img-education">
-                <img src="https://campus.campus-star.com/app/uploads/2017/06/building_07.jpg"></img>
+                <img alt="มหาวิทยาลัยเกษมบัณฑิต" src="https://campus.campus-star.com/app/uploads/2017/06/building_07.jpg"></img>
             </div>
             <div className="container-sub-education2">
                 <div>

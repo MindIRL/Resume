@@ -12,11 +12,13 @@ exports.create = async (req , res) => {
 
     const Data = {nationality,age,weight,height,github,slug}
 
-    const {ResumeFile} = req.file ? {
+    const ResumeFile = req.file ? {
         data: req.file.buffer,
         contentType: req.file.mimetype,
       }
     : undefined;
+    
+    console.log(req.file)
 
     if(ResumeFile){
         Data.ResumeFile = ResumeFile
@@ -99,18 +101,20 @@ exports.updateInfo = async (req , res) => {
         {data:req.file.buffer ,
          contentType:req.file.mimetype
         }
-        : nall
+        : null
 
     const Data = {nationality,age,weight,height,github}
 
-    ResumeFile ? Data.ResumeFile = ResumeFile : nall
+    if(ResumeFile){
+        Data.ResumeFile = ResumeFile
+    }
     
     try{
         const Info = await Personal.findOneAndUpdate({slug},Data,{new:true})
         if(!Info){
             return res.status(404).json({message:"ไม่พบข้อมูลที่ต้องการแก้ไข"})
         }else{
-            return res.statu(200).json({message:"อัพเดทข้อมูลสำเร็จ" , data:Info}) 
+            return res.status(200).json({message:"อัพเดทข้อมูลสำเร็จ" , data:Info}) 
         }       
     }
     catch(err) {
