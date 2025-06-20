@@ -1,44 +1,91 @@
-
+import { useState, useEffect , useRef } from "react"
+import axios from "axios"
 
 const WorkForm = () =>{
+
+
+    const [FormWork , SetFormWork] = useState({
+         company:"" ,
+         position:"" ,
+         province:"" ,
+         location:"" ,
+         WorkingTime:"" ,
+         ImageURL:"" ,
+         ImageFile:null ,
+         WorkDetails:[""]
+    })
+
+    const WorkInput = (e , index=null) =>{
+        const {name , value , type ,files } = e.target
+        if(name === "WorkDetails" && index !== null ){
+            SetFormWork((prev)=>{
+            const newDetails = [...prev.WorkDetails]
+            newDetails[index] = value
+            return ({...prev , WorkDetails:newDetails })
+            })
+        }else{
+            SetFormWork((prev)=>({...prev , [name]: type === "file" ? files[0] :value}))
+        }
+
+    }
+
+    const WorkSubmit = () =>{
+        const formData = new FormData()
+        for(let key in FormWork){
+            formData.append(key,FormWork[key])
+        }
+
+        axios.post(`${process.env.REACT_APP_API_URL}create-Work-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+    }
+
+
+    const addInfo = () => {
+        
+
+    }
+
+    const removeInfo = () => {
+
+    }
+
     return(
         <div className="box-form">
             <div className="title-form">ประสบการณ์การทำงาน</div>
-                <form>
+                <form onSubmit={WorkSubmit}>
                     <div>
                         <label>บริษัท</label>
-                        <input />
+                        <input name="company" value={FormWork.company} onChange={WorkInput}/>
                     </div>
                     <div>
                         <label>ตำแหน่ง</label>
-                        <input />
+                        <input name="position" value={FormWork.position} onChange={WorkInput}/>
                     </div>
                     <div>
                         <label>จังหวัด</label>
-                        <input />
+                        <input name="province" value={FormWork.province} onChange={WorkInput}/>
                     </div>
                     <div>
                         <label>สถานที่</label>
-                        <input />
+                        <input name="location" value={FormWork.location} onChange={WorkInput}/>
                     </div>
                     <div>
                         <label>ช่วงเวลาที่ทำงาน</label>
-                        <input />
+                        <input name="WorkingTime" value={FormWork.WorkingTime} onChange={WorkInput} />
                     </div>
                     <div>
                         <label>Image URL</label>
-                        <input placeholder="URL ใส่ช่องนี้"/>
+                        <input placeholder="URL ใส่ช่องนี้" name ="ImageURL" value={FormWork.ImageURL} onChange={WorkInput}/>
                         <div>
-                            <input type="file" name="Image"/>
+                            <input type="file" name="ImageFile"  onChange={WorkInput}/>
                         </div>
                     </div>
                     <div>
-                        <label>รายละเอียดการทำงาน</label>
+                        <label>รายละเอียดการทำงาน (คลิก + , - เพิ่มเพิ่ม ลบ ข้อมูล)</label>
                         <ol>
-                            <li><input placeholder="คลิก + เพิ่มรายการ"/></li>
-                            <li><input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ"/></li>
-                            <li><input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ"/></li>
-                            <span><i class="fa-solid fa-square-plus"></i><i class="fa-solid fa-minus"></i></span>
+                            {FormWork.WorkDetails.map((info , idx)=>(
+                                <li key={idx}><input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ" name="WorkDetails" value={info} onChange={(e)=>{WorkInput(e , idx)}}/></li>
+                            ))}
+                           <span><i class="fa-solid fa-square-plus" onClick={()=>addInfo()}></i><i class="fa-solid fa-minus" onClick={()=>removeInfo()}></i></span>
                         </ol>
                     </div>
                     <input type="submit" value="บันทุกข้อมูล"/>
@@ -48,3 +95,7 @@ const WorkForm = () =>{
 }
 
 export default WorkForm
+
+                           {/* <li><input placeholder="คลิก + เพิ่มรายการ" name="WorkDetails" value={FormWork.WorkDetails} onChange={WorkInput}/></li>
+                            <li><input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ" name="WorkDetails" value={FormWork.WorkDetails} onChange={WorkInput}/></li>
+                            <li><input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ" name="WorkDetails" value={FormWork.WorkDetails} onChange={WorkInput}/></li> */}
