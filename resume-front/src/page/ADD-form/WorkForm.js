@@ -39,13 +39,20 @@ const WorkForm = () =>{
     }
 
 
-    const addInfo = () => {
-        
-
+    const addInfo = () => { 
+            SetFormWork((prev)=>({...prev , WorkDetails:[...prev.WorkDetails , ""]}))
+    
     }
 
     const removeInfo = () => {
-
+        SetFormWork((prev)=>{
+            if(prev.WorkDetails.length <= 1){
+                return prev
+            }
+            const newWorkDetails = [...prev.WorkDetails]
+            newWorkDetails.pop()
+            return {...prev,WorkDetails:newWorkDetails}
+        })
     }
 
     return(
@@ -85,7 +92,7 @@ const WorkForm = () =>{
                             {FormWork.WorkDetails.map((info , idx)=>(
                                 <li key={idx}><input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ" name="WorkDetails" value={info} onChange={(e)=>{WorkInput(e , idx)}}/></li>
                             ))}
-                           <span><i class="fa-solid fa-square-plus" onClick={()=>addInfo()}></i><i class="fa-solid fa-minus" onClick={()=>removeInfo()}></i></span>
+                           <span><i class="fa-solid fa-square-plus" onClick={()=>addInfo()}></i>{FormWork.WorkDetails.length >1 && <i class="fa-solid fa-minus" onClick={()=>removeInfo()}></i>}</span>
                         </ol>
                     </div>
                     <input type="submit" value="บันทุกข้อมูล"/>
