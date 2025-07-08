@@ -15,10 +15,10 @@ router.put('/update-information/:slug', upload.single("ResumeFile") , updateInfo
 
 
 //Work
-router.post('/create-Work-info', upload.single("Image"), createWork )
+router.post('/create-Work-info', upload.single("ImageFile"), createWork )
 router.get('/Workinformations' , getAllWorkinfo)
 router.get('/Work-one-information/:slug' , singleWorkInfo)
-router.delete('delete-work-one-information/:slug' , DeleteSingleWorkInfo )
+router.delete('/delete-work-one-information/:slug' , DeleteSingleWorkInfo )
 router.put('/Work-update-information/:slug' , upload.single("Image") , updateWorkInfo)
 
 //Knowledge

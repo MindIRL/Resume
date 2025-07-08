@@ -32,7 +32,12 @@ const WorkForm = () =>{
     const WorkSubmit = () =>{
         const formData = new FormData()
         for(let key in FormWork){
-            formData.append(key,FormWork[key])
+            if(key === "WorkDetails"){
+                formData.append(key, JSON.stringify({experiences:FormWork[key]}) )
+            }else{
+                formData.append(key,FormWork[key])
+            }
+            
         }
 
         axios.post(`${process.env.REACT_APP_API_URL}create-Work-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
@@ -55,6 +60,10 @@ const WorkForm = () =>{
         })
     }
 
+    useEffect(()=>{
+        console.log(FormWork.WorkDetails)
+
+    },[FormWork.WorkDetails])
     return(
         <div className="box-form">
             <div className="title-form">ประสบการณ์การทำงาน</div>
@@ -92,7 +101,7 @@ const WorkForm = () =>{
                             {FormWork.WorkDetails.map((info , idx)=>(
                                 <li key={idx}><input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ" name="WorkDetails" value={info} onChange={(e)=>{WorkInput(e , idx)}}/></li>
                             ))}
-                           <span><i class="fa-solid fa-square-plus" onClick={()=>addInfo()}></i>{FormWork.WorkDetails.length >1 && <i class="fa-solid fa-minus" onClick={()=>removeInfo()}></i>}</span>
+                           <span><i className="fa-solid fa-square-plus" onClick={()=>addInfo()}></i>{FormWork.WorkDetails.length >1 && <i className="fa-solid fa-minus" onClick={()=>removeInfo()}></i>}</span>
                         </ol>
                     </div>
                     <input type="submit" value="บันทุกข้อมูล"/>

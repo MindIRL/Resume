@@ -5,9 +5,9 @@ const {v4:uuidv4} = require("uuid")
 
 //สร้างข้อมูล
 exports.createWork = async (req , res) => {
-    const {company, position , province , location , WorkingTime , WorkDetails , ImageURL} = req.body
+    const {company, position , province , location , WorkingTime , ImageURL} = req.body
     let slug = uuidv4()
-    
+    const WorkDetails = JSON.parse(req.body.WorkDetails)
     const Data = {company, position , province , location , WorkingTime , WorkDetails , ImageURL, slug }
 
     req.file ? Data.ImageFile = {data:req.file.buffer , contentType:req.file.mimetype} : null
