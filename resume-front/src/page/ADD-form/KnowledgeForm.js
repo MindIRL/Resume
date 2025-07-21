@@ -13,7 +13,11 @@ const KnowledgeForm = () =>{
     const KnowledgeInput = (e , idx=null) =>{
         console.log(idx)
         const {value , name} = e.target
-        SetKnowledge((prev)=>({...prev , [name]:[value]}))
+        SetKnowledge((prev)=>{
+            const newDetail = [...prev[name]]
+            newDetail[idx] = value
+            return  ({...prev , [name]:newDetail})
+        })
     }
 
     const addInfo = (e) =>{
@@ -45,10 +49,11 @@ const KnowledgeForm = () =>{
 
     }
 
-    const KnowledgeSubmit = () =>{
+    const KnowledgeSubmit = (e) =>{
+        e.preventDefault()
         const formData = new FormData()
         for(let key in FormKnowledge){
-            formData.append(key , JSON.stringify({experiences:formData[key]}))
+            formData.append(key , JSON.stringify({experiences:FormKnowledge[key]}))
         }
         
         axios.post(`${process.env.REACT_APP_API_URL}create-Knowledge-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
@@ -67,7 +72,7 @@ const KnowledgeForm = () =>{
                                     <input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ" name="FrontEnd" value={info} onChange={(e)=>KnowledgeInput(e , idx)}/>
                                 </li>
                             ))}
-                            <span><i class="fa-solid fa-square-plus" data-name="FrontEnd" onClick={addInfo}></i>{FormKnowledge.FrontEnd.length > 1  && <i class="fa-solid fa-minus" data-name="FrontEnd" onClick={removeInfo}></i>}</span>
+                            <span><i className="fa-solid fa-square-plus" data-name="FrontEnd" onClick={addInfo}></i>{FormKnowledge.FrontEnd.length > 1  && <i className="fa-solid fa-minus" data-name="FrontEnd" onClick={removeInfo}></i>}</span>
                         </ol>
                     </div>
                     <div>
@@ -79,7 +84,7 @@ const KnowledgeForm = () =>{
                                 </li>
                             ))}
                             
-                            <span><i class="fa-solid fa-square-plus" data-name="BackEnd" onClick={addInfo}></i>{FormKnowledge.BackEnd.length >1 && <i class="fa-solid fa-minus" data-name = "BackEnd" onClick={removeInfo}></i>}</span>
+                            <span><i className="fa-solid fa-square-plus" data-name="BackEnd" onClick={addInfo}></i>{FormKnowledge.BackEnd.length >1 && <i className="fa-solid fa-minus" data-name = "BackEnd" onClick={removeInfo}></i>}</span>
                         </ol>
                     </div>
                     <input type="submit" value="บันทุกข้อมูล"/>

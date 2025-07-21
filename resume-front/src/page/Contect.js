@@ -4,6 +4,7 @@ import "../style/contect.css"
 import { useState , useRef , useEffect} from "react"
 // import { Shareinfo } from "../ShareInfo"
 // import { useContext } from "react"
+import { useNavigate } from "react-router-dom"
 
 const Contect = () => {
 
@@ -11,10 +12,16 @@ const Contect = () => {
 
     const [GetNavHeight , SetNavHeight] = useState()
     const NavHeight = useRef(null)
+    const Navigate = useNavigate()
 
     useEffect(()=>{
         NavHeight.current ? SetNavHeight(NavHeight.current.offsetHeight) : console.log("ไม่มีข้อมูลความสูง Navbar")
     },[])
+
+    const EditForm = () =>{
+        
+        Navigate("/Edit-form")
+    }
 
 
     return(

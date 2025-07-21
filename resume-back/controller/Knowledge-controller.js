@@ -7,11 +7,17 @@ const {v4:uuidv4} = require("uuid")
 
 //สร้างข้อมูล
 exports.createKnowledge = async (req , res) =>{
-    const {FrontEnd, BackEnd} = req.body
+
     let slug = uuidv4()
 
+    let FrontEnd = {}
+    let BackEnd = {}
+
     try{
-        const Info = await Knowledge.create({FrontEnd, BackEnd , slug})
+        FrontEnd = JSON.parse(req.body.FrontEnd) 
+        BackEnd = JSON.parse(req.body.BackEnd)
+
+        const Info = await Knowledge.create({FrontEnd , BackEnd , slug})
         return res.json(Info)
     }
     catch(err){
@@ -76,9 +82,20 @@ exports.DeleteSingleKnowledgeInfo = async (req , res) =>{
 //อัพเดทข้อมูล
 exports.updateKnowledgeInfo = async (req , res) =>{
     const {slug} = req.params
-    const {FrontEnd, BackEnd} = req.body
+    
+    let FrontEnd = {}
+    let BackEnd = {}
 
     try{
+        if(req.body.FrontEnd){
+            FrontEnd = JSON.parse(req.body.FrontEnd)
+        }
+        
+        if(req.body.BackEnd){
+            BackEnd = JSON.parse(req.body.BackEnd)
+        }
+
+        
         const Info = await Knowledge.findOneAndUpdate({slug},{FrontEnd, BackEnd},{new:true})
         if(!Info){
             return res.status(404).json({message:"ไม่พบข้อมูลที่ต้องการอัพเดท"})

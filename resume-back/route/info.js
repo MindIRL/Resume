@@ -22,11 +22,11 @@ router.delete('/delete-work-one-information/:slug' , DeleteSingleWorkInfo )
 router.put('/Work-update-information/:slug' , upload.single("Image") , updateWorkInfo)
 
 //Knowledge
-router.post('/create-Knowledge-info' , createKnowledge)
+router.post('/create-Knowledge-info' , upload.none(), createKnowledge)
 router.get('/Knowledgeinformations' , getAllKnowledgeInfo)
 router.get('/Knowledge-one-information/:slug' , singleKnowledgeInfo)
 router.delete('/delete-knowledge-one-information/:slug' , DeleteSingleKnowledgeInfo )
-router.put('/Knowledge-update-information/:slug', updateKnowledgeInfo)
+router.put('/Knowledge-update-information/:slug',upload.none(), updateKnowledgeInfo)
 
 
 

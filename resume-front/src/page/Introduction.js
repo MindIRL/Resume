@@ -1,5 +1,7 @@
 import "../style/introduction.css"
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import axios from "axios"
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 
@@ -8,9 +10,18 @@ const Introduction = ({GetNavHeight}) => {
     const Navigate = useNavigate()
 
     const LoginPage = () =>{
-            Navigate("/Login")
+            Navigate("/Edit-form")
     }
 
+    useEffect(()=>{
+        axios.get(`${process.env.REACT_APP_API_URL}informations`)
+        .then((info)=>{
+            console.log("ดึงข้อมูลสำเร็จ" , info)
+        })
+        .catch((err)=>{
+            console.log("ดึงข้อมูลไม่สำเร็จ" , err)
+        })
+    },[])
 
     return(
         <div className="container" style={{paddingTop:`${GetNavHeight+10}px`}}>

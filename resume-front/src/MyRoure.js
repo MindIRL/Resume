@@ -26,7 +26,7 @@ function MyRoute() {
                 {/* สร้าง Token ตอน login */}
                 <Route path="/Login" element={<Login />}></Route>
                 <Route path="/Add-form" element={<AddForm />} />
-                <Route path="/Edit-form" element={<EditForm />} />
+                <Route path="/Edit-form/:slug" element={<EditForm />} />
                 <Route path="/Knowledge" element={<Knowledge />} />
             </Routes>
         </BrowserRouter>

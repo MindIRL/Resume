@@ -37,3 +37,15 @@
     border-radius: 20px;
     box-shadow: 5px 5px 5px rgba(60, 60, 60, 0.8);
 }
+
+button {
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    background-color: greenyellow;
+    border: 1px solid black;
+    margin-right: 5px;
+}
+
+button:active {
+    transform: scale(0.95);
+}
