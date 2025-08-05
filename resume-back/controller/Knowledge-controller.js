@@ -62,11 +62,9 @@ exports.singleKnowledgeInfo = async (req , res) =>{
 //ลบข้อมูล
 exports.DeleteSingleKnowledgeInfo = async (req , res) =>{
     const {slug} = req.params
-    console.log("slug ที่รับมา:", typeof slug)
 
     try{
         const Info = await Knowledge.findOneAndDelete({slug})
-        console.log("ผลลัพธ์จาก findOneAndDelete:", Info)
         if(!Info){
             return res.status(404).json({message:"ไม่พบข้อมูลที่ต้องการลบ"})
         }else{

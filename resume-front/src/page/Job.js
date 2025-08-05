@@ -4,6 +4,7 @@ import "../style/job.css"
 import { useRef , useEffect , useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
+import Swal from "sweetalert2"
 
 
 const Job = () => {
@@ -11,6 +12,7 @@ const Job = () => {
     const [GetNavHeight , SetNavHeight] = useState()
     const Navigate = useNavigate()
     const [GetInfo , SetInfo] = useState([])
+    const [ImageURLs , SetImageURLs] = useState({})
 
 
     useEffect(()=>{
@@ -27,17 +29,46 @@ const Job = () => {
     }
 
     const removeInfo = (slug) =>{
-        if(slug){
-            const Slug = slug.trim()
-            console.log("ดูรหัสลบ slug" , Slug)
-            axios.delete(`${process.env.REACT_APP_API_URL}delete-knowledge-one-information/${Slug}`)
-            .then((res)=>{
-                console.log("ลบข้อมูลสำเร็จ" , res)
-            })
-            .catch((err)=>{
-                console.log("ลบข้อมูลไม่สำเร็จ" , err)
-            })
-        }     
+        if(slug){       
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#30d63eff",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!" 
+            }).then((result) => {
+                if (result.isConfirmed) {
+                axios.delete(`${process.env.REACT_APP_API_URL}delete-work-one-information/${slug}`)
+                .then((res)=>{
+                    console.log("ลบข้อมูลสำเร็จ" , res)
+                    Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                    });
+                }) 
+                .catch((err)=>{
+                    console.log("ลบข้อมูลไม่สำเร็จ" , err)
+                    Swal.fire({
+                    title: "Deleted!",
+                    text: "Your file has been deleted.",
+                    icon: "success"
+                    });
+                })
+        }
+    })
+    }
+        // if(slug){
+        //     axios.delete(`${process.env.REACT_APP_API_URL}delete-work-one-information/${slug}`)
+        //     .then((res)=>{
+        //         console.log("ลบข้อมูลสำเร็จ" , res)
+        //     })
+        //     .catch((err)=>{
+        //         console.log("ลบข้อมูลไม่สำเร็จ" , err)
+        //     })
+        // }     
     }
 
     useEffect(()=>{
@@ -53,7 +84,26 @@ const Job = () => {
 
     useEffect(()=>{
         if(GetInfo){
-            console.log( "รีเช็คข้อมูล" ,GetInfo)
+            console.log( "รีเช็คข้อมูล" ,GetInfo , GetInfo.length)
+        }
+
+        if(GetInfo.length > 0){
+            const urls = {}
+            console.log(urls)
+
+            GetInfo.map((info)=>{
+                if(info.ImageFile && info.ImageFile.data && info.ImageFile.data.data){
+                    const byteArray = new Uint8Array(info.ImageFile.data.data)
+                    const blob = new Blob([byteArray] , {type : info.ImageFile.contentType})
+                    const imageURL = URL.createObjectURL(blob)
+                    urls[info.slug] = imageURL
+                }else if(info.ImageURL){
+                    urls[info.slug] = info.ImageURL
+                }
+            })
+
+            SetImageURLs(urls)
+
         }
         
     },[GetInfo])
@@ -68,7 +118,7 @@ const Job = () => {
                             <span>ประสบการณ์การทำงาน</span>
                         </div>
                         <div className="Education-detail">
-                            <img alt="" src={info.ImageURL}></img>
+                            <img alt="" src={ImageURLs[info.slug]}></img>
                             <div>
                                 <div>
                                     <strong>บริษัท : </strong>
