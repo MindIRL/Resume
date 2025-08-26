@@ -28,33 +28,46 @@ const Job = () => {
         Navigate(`/Edit-form/${slug}`)
     }
 
+    const refreshData = () =>{
+        axios.get(`${process.env.REACT_APP_API_URL}Workinformations`)
+        .then((res)=>{
+            console.log("ดึงข้อมูลสำเร็จ")
+            SetInfo(res.data)
+        })
+        .catch((err)=>{
+            console.log("ดึงข้อมูลไม่สำเร็จสำเร็จ" , err)
+        })
+    }
+
     const removeInfo = (slug) =>{
         if(slug){       
             Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
+                title: "คุณต้องการลบข้อมูลใช้ใหม?",
+                // text: "You won't be able to revert this!",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#30d63eff",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, delete it!" 
+                cancelButtonText:"ยกเลิก" ,
+                confirmButtonText: "ตกลง" 
             }).then((result) => {
                 if (result.isConfirmed) {
                 axios.delete(`${process.env.REACT_APP_API_URL}delete-work-one-information/${slug}`)
                 .then((res)=>{
                     console.log("ลบข้อมูลสำเร็จ" , res)
                     Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    title: "ลบข้อมูล!",
+                    text: "ลบข้อมูลเรียบร้อย",
                     icon: "success"
                     });
+                    refreshData()
                 }) 
                 .catch((err)=>{
                     console.log("ลบข้อมูลไม่สำเร็จ" , err)
                     Swal.fire({
-                    title: "Deleted!",
-                    text: "Your file has been deleted.",
-                    icon: "success"
+                    title: "ลบข้อมูลไม่สำเร็จ!",
+                    text: "กรุณาลองใหม่อีกครั้ง",
+                    icon: "warning"
                     });
                 })
         }

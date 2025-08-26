@@ -55,6 +55,7 @@ const PersonalForm = () =>{
         })
     }
 
+
     useEffect(() => {
         console.log(FormPersonal);
     }, [FormPersonal]); 
