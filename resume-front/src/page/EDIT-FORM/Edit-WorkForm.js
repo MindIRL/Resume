@@ -1,7 +1,8 @@
 import { useState, useEffect  } from "react"
+import { useParams } from "react-router-dom"
 import axios from "axios"
 
-const WorkForm = () =>{
+const EditWorkForm = () =>{
 
 
     const [FormWork , SetFormWork] = useState({
@@ -14,6 +15,9 @@ const WorkForm = () =>{
          ImageFile:null ,
          WorkDetails:[""]
     })
+
+
+    const {slug} = useParams()
 
     const WorkInput = (e , index=null) =>{
         const {name , value , type ,files } = e.target
@@ -64,6 +68,17 @@ const WorkForm = () =>{
         console.log(FormWork.WorkDetails)
 
     },[FormWork.WorkDetails])
+
+        useEffect(()=>{
+        axios.get(`${process.env.REACT_APP_API_URL}Work-one-information/${slug}`)
+        .then((info)=>{
+            console.log("slug = ",slug,"ได้ข้อมูล",info)
+        })
+        .catch((err)=>{
+            console.log("ไม่สามารถดึงข้อมูลได้" ,err)
+        })
+        
+    },[])
     return(
         <div className="box-form">
             <div className="title-form">ประสบการณ์การทำงาน</div>
@@ -110,8 +125,5 @@ const WorkForm = () =>{
     )
 }
 
-export default WorkForm
+export default EditWorkForm
 
-                           {/* <li><input placeholder="คลิก + เพิ่มรายการ" name="WorkDetails" value={FormWork.WorkDetails} onChange={WorkInput}/></li>
-                            <li><input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ" name="WorkDetails" value={FormWork.WorkDetails} onChange={WorkInput}/></li>
-                            <li><input placeholder="คลิก + เพิ่มรายการ , - ลบรายการ" name="WorkDetails" value={FormWork.WorkDetails} onChange={WorkInput}/></li> */}

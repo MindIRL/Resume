@@ -1,35 +1,35 @@
 
 
-.edit-form-container {
+.form-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
 }
 
-.title-edit-form {
+.title-form {
     font-size: 25px;
     font-weight: bold;
     border-bottom: 2px dashed black;
 }
 
-.box-edit-form {
+.box-form {
     height: auto;
     width: 300px;
 }
 
-.box-edit-form form div label {
+.box-form form div label {
     margin-right: 10px;
     font-weight: bold;
     font-size: 15px;
 }
 
 
-.box-edit-form form div {
+.box-form form div {
     margin: 5px 0;
 }
 
-.box-edit-form form div input {
+.box-form form div input {
     display: block;
     width: 100%;
     height: 30px;
@@ -37,16 +37,16 @@
     font-size: 15px;
 }
 
-.box-edit-form form div ol li {
+.box-form form div ol li {
     margin-bottom: 5px;
 }
 
-.box-edit-form form div ol {
+.box-form form div ol {
     position: relative;
     padding-bottom: 20px;
 }
 
-.box-edit-form form div ol span {
+.box-form form div ol span {
     position: absolute;
     right: 0;
     bottom: 0;
@@ -62,4 +62,11 @@ input[type = "submit"] {
     font-weight: bold;
     display: flex;
     justify-self: center;
+    background-color: goldenrod;
+    border-radius: 5px;
+}
+
+
+input[type="file"] {
+   background-color: aquamarine;
 }

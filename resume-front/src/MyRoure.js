@@ -7,7 +7,7 @@ import EditInfo from "./page/EditInfo"
 import AdminRoute from "./AdminRoute"
 import Login from "./page/Login"
 import AddForm from "./page/ADD-form/Add-form"
-import EditForm from "./page/Edit-form"
+import EditForm from "./page/EDIT-FORM/Edit-form"
 import Knowledge from "./page/Know-ledge"
 
 

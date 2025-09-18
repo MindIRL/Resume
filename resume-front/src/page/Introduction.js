@@ -11,8 +11,8 @@ const Introduction = ({GetNavHeight}) => {
 
     const Navigate = useNavigate()
 
-    const LoginPage = () =>{
-            Navigate("/Edit-form")
+    const EditForm = (slug) =>{
+            Navigate(`/Edit-form/${slug}`)
     }
 
     useEffect(()=>{
@@ -39,10 +39,10 @@ const Introduction = ({GetNavHeight}) => {
                 </div>
                 <div className="personal-info">
                     <p>สัญชาติ : <span>{info.nationality}</span></p> 
-                    <p>อายุ : <span>{info.age}</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p>
-                    <p>น้ำหนัก : <span>{info.weight}</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p> 
-                    <p>ส่วนสูง : <span>{info.height}</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p>
-                    <p>GitHub <i className="fa-brands fa-github"></i> : <span>{info.github}</span><i className="fa-solid fa-pen" onClick={LoginPage}></i></p> 
+                    <p>อายุ : <span>{info.age}</span><i className="fa-solid fa-pen" onClick={(i)=>EditForm(info.slug)}></i></p>
+                    <p>น้ำหนัก : <span>{info.weight}</span><i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i></p> 
+                    <p>ส่วนสูง : <span>{info.height}</span><i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i></p>
+                    <p>GitHub <i className="fa-brands fa-github"></i> : <span>{info.github}</span><i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i></p> 
                 </div>
                 <div className="btn">
                     <a href="https://www.youtube.com/" target="blank_"download>

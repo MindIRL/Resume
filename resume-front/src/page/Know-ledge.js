@@ -19,8 +19,11 @@ const Knowledge = () => {
         }
     },[])
 
-    const EditForm = () =>{
-        Naigate("/Edit-form")
+    const EditForm = (info) =>{
+        console.log(info)
+        Naigate(`/Edit-form/${info}`)
+
+        
     }
 
     const refreshData = () =>{
@@ -35,6 +38,7 @@ const Knowledge = () => {
     }
 
     const removeInfo = (slug) =>{
+        console.log(slug)
         if(slug){       
             Swal.fire({
                 title: "คุณต้องการลบข้อมูลใช้ใหม?",
@@ -110,7 +114,7 @@ const Knowledge = () => {
                         </div>
                         
                         <div style={{ position:"absolute",bottom:0 , right:"50%" , transform:"translateX(50%)" }}>
-                            <button onClick={EditForm}>แก้ไขข้อมูล</button>
+                            <button onClick={()=>EditForm(info.slug)}>แก้ไขข้อมูล</button>
                             <button style={{backgroundColor:"red"}} onClick={()=>{removeInfo(info.slug)}}>ลบข้อมูล</button>
                         </div>
                     </div>
