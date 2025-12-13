@@ -45,7 +45,7 @@ const Introduction = ({GetNavHeight}) => {
                     <p>GitHub <i className="fa-brands fa-github"></i> : <span>{info.github}</span><i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i></p> 
                 </div>
                 <div className="btn">
-                    <a href="https://www.youtube.com/" target="blank_"download>
+                    <a href="/resumeFile-PDF/TestPDF.pdf" download="TestPDF.pdf">
                         <button>Download Resume</button>
                     </a>
                 </div>

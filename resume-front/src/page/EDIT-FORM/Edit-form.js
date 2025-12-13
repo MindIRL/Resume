@@ -19,6 +19,7 @@ const EditForm = () => {
         <div style={{paddingTop:`${GetNavHeight+30}px`}}>
             <Nav NavHeight = {NavHeight}/>
             <div className="form-container">
+                {/* สร้างเงื่อนไขเพื่อเปิดไฟล์แต่ละหน้า*/}
                 <EditPersonalForm />
                 <EditWorkForm />
                 <EditKnowledgeForm />

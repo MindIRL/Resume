@@ -69,10 +69,14 @@ const EditWorkForm = () =>{
 
     },[FormWork.WorkDetails])
 
-        useEffect(()=>{
+    useEffect(()=>{
         axios.get(`${process.env.REACT_APP_API_URL}Work-one-information/${slug}`)
         .then((info)=>{
-            console.log("slug = ",slug,"ได้ข้อมูล",info)
+            console.log("slug = ",slug,"ได้ข้อมูลจาก WorkForm",info)
+            const Data = info.data
+            SetFormWork({...Data , 
+                WorkDetails: Data.WorkDetails?.experiences || [""]
+            })
         })
         .catch((err)=>{
             console.log("ไม่สามารถดึงข้อมูลได้" ,err)
