@@ -32,7 +32,10 @@ const Job = () => {
         axios.get(`${process.env.REACT_APP_API_URL}Workinformations`)
         .then((res)=>{
             console.log("ดึงข้อมูลสำเร็จ")
-            SetInfo(res.data)
+            const NewWorkDetails_parse = res.data.map((item)=>({
+                ...item , WorkDetails : typeof item.WorkDetails === "string" ? JSON.parse(item.WorkDetails) : item.WorkDetails               
+            }))
+            SetInfo(NewWorkDetails_parse)
         })
         .catch((err)=>{
             console.log("ดึงข้อมูลไม่สำเร็จสำเร็จ" , err)
@@ -88,7 +91,11 @@ const Job = () => {
         axios.get(`${process.env.REACT_APP_API_URL}Workinformations`)
         .then((info)=>{
             console.log("ดึงข้อมูลสำเร็จ" , info)
-            SetInfo(info.data)
+            const WorkDetails_Parse = info.data.map((item)=>({
+            ...item , WorkDetails : typeof item.WorkDetails === "string" ? JSON.parse(item.WorkDetails) : item.WorkDetails
+            }))
+            console.log(WorkDetails_Parse)
+            SetInfo(WorkDetails_Parse)
         })
         .catch((err)=>{
             console.log("ดึงข้อมูลไม่สำเร็จ" , err)

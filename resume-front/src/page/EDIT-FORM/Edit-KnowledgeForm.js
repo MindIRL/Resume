@@ -59,7 +59,7 @@ const EditKnowledgeForm = () =>{
             formData.append(key , JSON.stringify({experiences:FormKnowledge[key]}))
         }
         
-        axios.post(`${process.env.REACT_APP_API_URL}create-Knowledge-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        axios.put(`${process.env.REACT_APP_API_URL}Knowledge-update-information/${slug}` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
 
     }
 
@@ -67,6 +67,9 @@ const EditKnowledgeForm = () =>{
         axios.get(`${process.env.REACT_APP_API_URL}Knowledge-one-information/${slug}`)
         .then((info)=>{
             console.log("slug = ",slug,"ได้ข้อมูล",info)
+            const Data = info.data
+            SetKnowledge({...Data , FrontEnd:Data.FrontEnd?.experiences || [""] , BackEnd:Data.BackEnd?.experiences || [""]})
+
         })
         .catch((err)=>{
             console.log("ไม่สามารถดึงข้อมูลได้" ,err)

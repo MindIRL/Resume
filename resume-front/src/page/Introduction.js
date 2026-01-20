@@ -15,6 +15,38 @@ const Introduction = ({GetNavHeight}) => {
             Navigate(`/Edit-form/${slug}`)
     }
 
+    const downloadResume = (ResumeFile) =>{
+        if(!ResumeFile?.data?.data) return
+
+        const byteArray = new Uint8Array(ResumeFile.data.data)
+        const blob = new Blob([byteArray],{
+            type:ResumeFile.contentType ,
+        })
+        const url = window.URL.createObjectURL(blob)
+        const a = document.createElement("a")
+        a.href = url
+
+        //ชื่อไฟล์ดาวโหลด
+        let filename = "Resume"
+
+        if(ResumeFile.contentType.includes("pdf")){
+            filename += ".pdf"
+        }else if (ResumeFile.contentType.includes("spreadsheet") || ResumeFile.contentType.includes("excel") ) {
+            filename += ".xlsx"
+        }else{
+            filename += ".file"
+        }
+
+        //ชื่อไฟล์ดาวโหลด
+        a.download = filename
+
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+
+        window.URL.revokeObjectURL(url)
+    }
+
     useEffect(()=>{
         axios.get(`${process.env.REACT_APP_API_URL}informations`)
         .then((info)=>{
@@ -44,10 +76,8 @@ const Introduction = ({GetNavHeight}) => {
                     <p>ส่วนสูง : <span>{info.height}</span><i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i></p>
                     <p>GitHub <i className="fa-brands fa-github"></i> : <span>{info.github}</span><i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i></p> 
                 </div>
-                <div className="btn">
-                    <a href="/resumeFile-PDF/TestPDF.pdf" download="TestPDF.pdf">
-                        <button>Download Resume</button>
-                    </a>
+                <div className="btn" >                  
+                        <button onClick={()=>downloadResume(info.ResumeFile)}>Download Resume</button>                   
                 </div>
             </div>
             ))}

@@ -94,9 +94,9 @@ const Knowledge = () => {
                             <p>ความรู้พื้นฐานตำแหน่ง Front End Developer <i class="fa-solid fa-computer"></i></p>    
                             {info.FrontEnd.experiences.map((info , idx)=>{
                             return(
-                                    <ol key={idx}>
+                                    <ul key={idx}>
                                         <li>{info}</li>
-                                    </ol>
+                                    </ul>
                                 )
                             })}           
                         </div>
@@ -106,9 +106,9 @@ const Knowledge = () => {
                             <p>ความรู้พื้นฐานตำแหน่ง Back End Developer <i class="fa-solid fa-server"></i></p>
                             {info.BackEnd.experiences.map((info , idx)=>{
                                 return(
-                                    <ol>
+                                    <ul>
                                         <li>{info}</li>
-                                    </ol>
+                                    </ul>
                                 )
                             })}
                         </div>

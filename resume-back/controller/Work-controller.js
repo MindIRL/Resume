@@ -76,8 +76,9 @@ exports.DeleteSingleWorkInfo = async (req , res) =>{
 //อัพเดพข้อมูล
 exports.updateWorkInfo = async (req , res) => {
     const {slug} = req.params
-    const{company, position , province , location , WorkingTime , WorkDetails , ImageURL} = req.body
+    const{company, position , province , location , WorkingTime  , ImageURL} = req.body
 
+    const WorkDetails = JSON.parse(req.body.WorkDetails)
     const Data = {company, position , province , location , WorkingTime , WorkDetails , ImageURL}
 
     req.file ? Data.ImageFile = {data:req.file.buffer , contentType:req.file.mimetype} : null

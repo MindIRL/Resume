@@ -37,14 +37,14 @@ const EditWorkForm = () =>{
         const formData = new FormData()
         for(let key in FormWork){
             if(key === "WorkDetails"){
-                formData.append(key, JSON.stringify({experiences:FormWork[key]}) )
+                formData.append(key, JSON.stringify({experiences:FormWork[key]}))
             }else{
                 formData.append(key,FormWork[key])
             }
             
         }
 
-        axios.post(`${process.env.REACT_APP_API_URL}create-Work-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        axios.put(`${process.env.REACT_APP_API_URL}Work-update-information/${slug}` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
     }
 
 
@@ -60,7 +60,7 @@ const EditWorkForm = () =>{
             }
             const newWorkDetails = [...prev.WorkDetails]
             newWorkDetails.pop()
-            return {...prev,WorkDetails:newWorkDetails}
+            return ({...prev,WorkDetails:newWorkDetails})
         })
     }
 
@@ -74,9 +74,17 @@ const EditWorkForm = () =>{
         .then((info)=>{
             console.log("slug = ",slug,"ได้ข้อมูลจาก WorkForm",info)
             const Data = info.data
-            SetFormWork({...Data , 
-                WorkDetails: Data.WorkDetails?.experiences || [""]
-            })
+
+            let WorkDetails = [""]
+
+            if(typeof Data.WorkDetails === "string"){
+                const parse = JSON.parse(Data.WorkDetails)
+                WorkDetails = parse?.experiences || [""]
+            }else{
+                WorkDetails = Data.WorkDetails?.experiences || [""]
+            }
+
+            SetFormWork({...Data , WorkDetails : WorkDetails})
         })
         .catch((err)=>{
             console.log("ไม่สามารถดึงข้อมูลได้" ,err)
