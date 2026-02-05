@@ -4,12 +4,15 @@ var {expressjwt:expressjwt} = require("express-jwt")
 
 exports.login = (req , res) =>{
     const {username , password} = req.body
-    if(username === process.env.USERNAME && password === process.env.PASSWORD){
+    console.log("LOGIN BODY:", req.body)
+    console.log("env = ", process.env._USERNAME , process.env._PASSWORD)
+    if(username?.trim() === process.env._USERNAME && password?.trim() === process.env._PASSWORD){
         const token = JWT.sign({username},process.env.JWT_SECRET,{expiresIn:"1d"})
         return res.json({token , username})
     }else {
         return res.status(400).json({error:"รหัสผ่านไม่ถูกต้อง"})
     }
+    
 }
 
 

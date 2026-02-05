@@ -45,3 +45,32 @@ position: relative;
     bottom: 9px;
     right: 5px;
 }
+
+.fa-eye-slash:hover{
+    cursor: pointer;
+}
+
+.fa-eye{
+    position: absolute;
+    bottom: 9px;
+    right: 5px;
+}
+
+.submitbotton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submitbotton .botton {
+    width: 60%;
+    height: 100%;
+    background-color: pink;
+    font-size: 17px;
+    border: none;
+    box-shadow: 2px 2px 2px red;
+}
+
+.submitbotton .botton:active{
+    scale: 0.9;
+}
