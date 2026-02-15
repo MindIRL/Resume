@@ -5,6 +5,7 @@ import { useRef , useEffect , useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import Swal from "sweetalert2"
+import { getToken } from "../services/authorize"
 
 
 const Job = () => {
@@ -55,7 +56,7 @@ const Job = () => {
                 confirmButtonText: "ตกลง" 
             }).then((result) => {
                 if (result.isConfirmed) {
-                axios.delete(`${process.env.REACT_APP_API_URL}delete-work-one-information/${slug}`)
+                axios.delete(`${process.env.REACT_APP_API_URL}delete-work-one-information/${slug} ` , {headers:{Authorization:`bearer ${getToken()}`}})
                 .then((res)=>{
                     console.log("ลบข้อมูลสำเร็จ" , res)
                     Swal.fire({

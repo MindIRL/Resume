@@ -1,5 +1,6 @@
 import { useState, useEffect  } from "react"
 import axios from "axios"
+import { getToken } from "../../services/authorize"
 
 const WorkForm = () =>{
 
@@ -40,7 +41,8 @@ const WorkForm = () =>{
             
         }
 
-        axios.post(`${process.env.REACT_APP_API_URL}create-Work-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        // axios.post(`${process.env.REACT_APP_API_URL}create-Work-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        axios.post(`${process.env.REACT_APP_API_URL}create-Work-info` , formData , {headers:{Authorization:`bearer ${getToken()}`}})
     }
 
 

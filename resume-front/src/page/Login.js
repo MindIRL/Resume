@@ -44,7 +44,8 @@ const Login = () =>{
 
         axios.post(`${process.env.REACT_APP_API_URL}login` , {username , password})
         .then((res)=>{
-            authenticate(res , Navigate("/"))
+            console.log(res)
+            authenticate(res , next => Navigate("/"))
         })
         .catch((err)=>{
             Swal.fire(

@@ -1,11 +1,10 @@
 const JWT = require("jsonwebtoken")
 var {expressjwt:expressjwt} = require("express-jwt")
 
-
+//ล็อคอิน
 exports.login = (req , res) =>{
     const {username , password} = req.body
     console.log("LOGIN BODY:", req.body)
-    console.log("env = ", process.env._USERNAME , process.env._PASSWORD)
     if(username?.trim() === process.env._USERNAME && password?.trim() === process.env._PASSWORD){
         const token = JWT.sign({username},process.env.JWT_SECRET,{expiresIn:"1d"})
         return res.json({token , username})

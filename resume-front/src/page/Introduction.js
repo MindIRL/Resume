@@ -9,6 +9,8 @@ const Introduction = ({GetNavHeight}) => {
 
     const [GetInfo , SetInfo] = useState([])
 
+    const [ImageURLs , SetImageURLs] = useState({})
+
     const Navigate = useNavigate()
 
     const EditForm = (slug) =>{
@@ -58,12 +60,31 @@ const Introduction = ({GetNavHeight}) => {
         })
     },[])
 
-    return(        
-        <div className="container" style={{paddingTop:`${GetNavHeight+10}px`}}>
+    useEffect(()=>{
+        if(GetInfo.length >0){
+            const url = {}
+            console.log(url)
+
+            GetInfo.map((info)=>{
+                if(info?.ImageFile?.data?.data){
+                    const byteArray = new Uint8Array(info.ImageFile.data.data)
+                    const blob = new Blob([byteArray] , {type: info.ImageFile.contentType})
+                    const imageURL = URL.createObjectURL(blob)
+                    url[info.slug] = imageURL
+                }
+            SetImageURLs(url)
+            })
+        }
+    },[GetInfo])
+
+    return(   
+        <>
+        {GetInfo.map((info , idx)=>(     
+        <div className="container" style={{paddingTop:`${GetNavHeight+10}px`}}>           
             <div className="img">
-                <img src="https://i.pinimg.com/236x/5c/bb/04/5cbb0499aa8a3149e20dc0c5b869a548.jpg" alt=""/>
+                <img src={ImageURLs[info.slug]} alt=""/>
             </div>
-            {GetInfo.map((info , idx)=>(               
+                          
             <div className="info" key={idx}>
                 <div>
                     <p>สวรรยา บุญประจวบ</p> 
@@ -79,11 +100,12 @@ const Introduction = ({GetNavHeight}) => {
                 <div className="btn" >                  
                         <button onClick={()=>downloadResume(info.ResumeFile)}>Download Resume</button>                   
                 </div>
+                
             </div>
-            ))}
+            
         </div>
-        
-        
+        ))}
+        </>
     )
 }
 

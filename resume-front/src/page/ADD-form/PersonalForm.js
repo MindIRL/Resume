@@ -1,5 +1,6 @@
 import { useEffect , useState ,useRef } from "react"
 import axios from "axios"
+import { getToken } from "../../services/authorize"
 
 
 const PersonalForm = () =>{
@@ -12,7 +13,8 @@ const PersonalForm = () =>{
         weight:"" ,
         height:"" , 
         github:"" ,
-        ResumeFile:null
+        ResumeFile:null ,
+        ImageFile:null
     })
 
     // ฟอร์ม Personal Input
@@ -33,7 +35,8 @@ const PersonalForm = () =>{
             formData.append(key , FormPersonal[key])
         }
 
-        axios.post(`${process.env.REACT_APP_API_URL}create-Personal-info`, formData ,{headers: { "Content-Type": "multipart/form-data"}})
+        // axios.post(`${process.env.REACT_APP_API_URL}create-Personal-info`, formData ,{headers: { "Content-Type": "multipart/form-data"}})
+        axios.post(`${process.env.REACT_APP_API_URL}create-Personal-info`, formData ,{headers:{Authorization:`bearer ${getToken()}`}})
         .then((res)=>{
             console.log("ข้อมูลสำเร็จ" , res)
 
@@ -88,7 +91,11 @@ const PersonalForm = () =>{
                         <label>Resume File</label>
                         <input type="file" name="ResumeFile" ref={FileInputValue} onChange={PersonalInput}/>
                     </div>
-                    <input type="submit" value="บันทุกข้อมูล"/>
+                    <div>
+                        <label>Image File</label>
+                        <input type="file" name="ImageFile" ref={FileInputValue} onChange={PersonalInput}/>
+                    </div>
+                    <input type="submit" value="บันทึกข้อมูล"/>
                 </form>
             </div>
 

@@ -12,16 +12,27 @@ exports.create = async (req , res) => {
 
     const Data = {nationality,age,weight,height,github,slug}
 
-    const ResumeFile = req.file ? {
-        data: req.file.buffer,
-        contentType: req.file.mimetype,
+    const ResumeFile = req.files?.["ResumeFile"] ?. [0] ? {
+        data: req.files["ResumeFile"][0].buffer,
+        contentType: req.files["ResumeFile"][0].mimetype,
       }
     : undefined;
+
+    const ImageFile = req.files?.["ImageFile"] ?. [0] ? {
+        data:req.files["ImageFile"][0].buffer ,
+        contentType:req.files["ImageFile"][0].mimetype
+    }
+    : undefined
+
     
-    console.log(req.file)
+    console.log(req.files)
 
     if(ResumeFile){
         Data.ResumeFile = ResumeFile
+    }
+
+    if(ImageFile){
+        Data.ImageFile = ImageFile
     }
 
     try{
@@ -97,16 +108,26 @@ exports.updateInfo = async (req , res) => {
     const {slug} = req.params
     const {nationality,age,weight,height,github} = req.body
 
-    const ResumeFile = req.file ?
-        {data:req.file.buffer ,
-         contentType:req.file.mimetype
+    const ResumeFile = req.files?.["ResumeFile"]?.[0] ?
+        {data:req.files["ResumeFile"][0].buffer ,
+         contentType:req.files["ResumeFile"][0].mimetype
         }
-        : null
+        : undefined
+
+    const ImageFile = req.files?.["ImageFile"]?.[0] ?
+        {data : req.files["ImageFile"][0].buffer ,
+         contentType : req.files["ImageFile"][0].mimetype
+        }
+        : undefined
 
     const Data = {nationality,age,weight,height,github}
 
     if(ResumeFile){
         Data.ResumeFile = ResumeFile
+    }
+
+    if(ImageFile){
+        Data.ImageFile = ImageFile
     }
     
     try{

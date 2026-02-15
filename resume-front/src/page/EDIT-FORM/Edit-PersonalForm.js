@@ -1,6 +1,7 @@
 import { useEffect , useState ,useRef } from "react"
 import { useParams } from "react-router-dom"
 import axios from "axios"
+import { getToken } from "../../services/authorize"
 
 
 const EditPersonalForm = () =>{
@@ -36,7 +37,8 @@ const EditPersonalForm = () =>{
             formData.append(key , FormPersonal[key])
         }
 
-        axios.put(`${process.env.REACT_APP_API_URL}update-information/${slug}`, formData ,{headers: { "Content-Type": "multipart/form-data"}})
+        // axios.put(`${process.env.REACT_APP_API_URL}update-information/${slug}`, formData ,{headers: { "Content-Type": "multipart/form-data"}})
+        axios.put(`${process.env.REACT_APP_API_URL}update-information/${slug}`, formData ,{headers: { Authorization: `bearer ${getToken()}`}})
         .then((res)=>{
             console.log("ข้อมูลสำเร็จ" , res)
 
@@ -46,7 +48,8 @@ const EditPersonalForm = () =>{
             weight:"" ,
             height:"" , 
             github:"" ,
-            ResumeFile:null
+            ResumeFile:null ,
+            ImageFile:null
         }) 
         if(FileInputValue.current){
             console.log(FileInputValue.current.value)
@@ -103,6 +106,10 @@ const EditPersonalForm = () =>{
                     <div>
                         <label>Resume File</label>
                         <input type="file" name="ResumeFile" ref={FileInputValue} onChange={PersonalInput}/>
+                    </div>
+                    <div>
+                        <label>Image File</label>
+                        <input type="file" name="ImageFile" ref={FileInputValue} onChange={PersonalInput}/>
                     </div>
                     <input type="submit" value="บันทุกข้อมูล"/>
                 </form>

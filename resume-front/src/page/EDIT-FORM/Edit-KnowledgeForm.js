@@ -1,6 +1,7 @@
 import { useState , useEffect} from "react"
 import { useParams } from "react-router-dom"
 import axios from "axios"
+import {getToken} from "../../services/authorize"
 
 
 const EditKnowledgeForm = () =>{
@@ -59,7 +60,8 @@ const EditKnowledgeForm = () =>{
             formData.append(key , JSON.stringify({experiences:FormKnowledge[key]}))
         }
         
-        axios.put(`${process.env.REACT_APP_API_URL}Knowledge-update-information/${slug}` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        // axios.put(`${process.env.REACT_APP_API_URL}Knowledge-update-information/${slug}` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        axios.put(`${process.env.REACT_APP_API_URL}Knowledge-update-information/${slug}` , formData , {headers:{ Authorization : `bearer ${getToken()}`}})
 
     }
 

@@ -26,6 +26,10 @@ const PersonalSchema = mongoose.Schema({
         data: Buffer,
         contentType: String 
     },
+    ImageFile:{
+        data: Buffer ,
+        contentType: String
+    },
     slug:{
         type:String,
         lowercase:true,

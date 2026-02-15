@@ -1,6 +1,7 @@
 import { useState, useEffect  } from "react"
 import { useParams } from "react-router-dom"
 import axios from "axios"
+import { getToken } from "../../services/authorize"
 
 const EditWorkForm = () =>{
 
@@ -44,7 +45,8 @@ const EditWorkForm = () =>{
             
         }
 
-        axios.put(`${process.env.REACT_APP_API_URL}Work-update-information/${slug}` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        // axios.put(`${process.env.REACT_APP_API_URL}Work-update-information/${slug}` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        axios.put(`${process.env.REACT_APP_API_URL}Work-update-information/${slug}` , formData , {headers:{ Authorization:`bearer ${getToken()}`}})
     }
 
 

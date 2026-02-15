@@ -1,9 +1,13 @@
 
-import {Link} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 import  "../style/nav.css"
 import { useState } from "react"
+import { getUsername , logout } from "../services/authorize"
+import { Navigate } from "react-router-dom"
 
 const Nav = ({NavHeight}) => {
+
+    const Navigate = useNavigate()
 
     const [newclass , setnewclass] = useState(false)
 
@@ -26,13 +30,16 @@ const Nav = ({NavHeight}) => {
             </div>
 
             <div className="nav-login">
+                {getUsername() && (
                 <div className="form-selection"><i class="fa-solid fa-file" style={{marginRight:"2px"}}></i> ฟอร์ม <i class="fa-solid fa-caret-down" style={{marginLeft:"4px" , color:"#c41411"}}></i>
                     <div className="form-option">
                         <Link to = {"/Add-form"}><div><i class="fa-regular fa-pen-to-square" style={{marginRight:"2px"}}></i> บันทึกข้อมูล</div></Link>
-                        <Link to = {"/Edit-form/123"}><div><i class="fa-solid fa-wrench" style={{marginRight:"2px"}}></i> แก้ไขข้อมูล</div></Link>
+                        {/* <Link to = {"/Edit-form/123"}><div><i class="fa-solid fa-wrench" style={{marginRight:"2px"}}></i> แก้ไขข้อมูล</div></Link> */}
                     </div>
                 </div>
-                <div><Link to= {"/Login"}><i className="fa-solid fa-user-pen"></i> <span>เข้าสู่ระบบ</span></Link></div>
+                )}
+                {!getUsername() && (<div><Link to= {"/Login"}><i className="fa-solid fa-user-pen"></i> <span>เข้าสู่ระบบ</span></Link></div>)}
+                {getUsername() && (<div><a onClick={()=>{logout(next=>Navigate("/"))}}><i className="fa-solid fa-user-pen"></i> <span>ออกจากระบบ</span></a></div>)}
             </div>
         </div>
 

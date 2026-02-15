@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import {getToken} from "../../services/authorize"
 
 
 const KnowledgeForm = () =>{
@@ -56,7 +57,8 @@ const KnowledgeForm = () =>{
             formData.append(key , JSON.stringify({experiences:FormKnowledge[key]}))
         }
         
-        axios.post(`${process.env.REACT_APP_API_URL}create-Knowledge-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        // axios.post(`${process.env.REACT_APP_API_URL}create-Knowledge-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
+        axios.post(`${process.env.REACT_APP_API_URL}create-Knowledge-info` , formData , {headers:{Authorization:`bearer ${getToken()}`}})
 
     }
 
