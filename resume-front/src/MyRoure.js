@@ -3,7 +3,6 @@ import App from "./page/App"
 import Education from "./page/Education"
 import Job from "./page/Job"
 import Contect from "./page/Contect"
-import EditInfo from "./page/EditInfo"
 import AdminRoute from "./AdminRoute"
 import Login from "./page/Login"
 import AddForm from "./page/ADD-form/Add-form"
@@ -19,15 +18,13 @@ function MyRoute() {
                 <Route path="/Education" element={<Education />} />
                 <Route path="/Job" element={<Job />}></Route>
                 <Route path="/Contect" element={<Contect />} />
+                <Route path="/Knowledge" element={<Knowledge />} />
                 {/* ต้องมี Token ถึงจะเข้าหน้านี้ได้ */}
                 <Route element={<AdminRoute />}>
-                    <Route path="/blog/edit/:slug" element={<EditInfo />} />
+                    <Route path="/Add-form" element={<AddForm />} />
+                    <Route path="/Edit-form/:slug" element={<EditForm />} />                    
                 </Route>
-                {/* สร้าง Token ตอน login */}
-                <Route path="/Login" element={<Login />}></Route>
-                <Route path="/Add-form" element={<AddForm />} />
-                <Route path="/Edit-form/:slug" element={<EditForm />} />
-                <Route path="/Knowledge" element={<Knowledge />} />
+                <Route path="/Login" element={<Login />}></Route>               
             </Routes>
         </BrowserRouter>
 

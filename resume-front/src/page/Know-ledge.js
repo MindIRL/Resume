@@ -4,7 +4,7 @@ import { useEffect , useState , useRef } from "react"
 import { useNavigate } from "react-router-dom"
 import axios  from "axios"
 import Swal from "sweetalert2"
-import { getToken } from "../services/authorize"
+import { getToken , getUsername } from "../services/authorize"
 const Knowledge = () => {
     const NavHeight = useRef(null)
 
@@ -112,11 +112,12 @@ const Knowledge = () => {
                                 )
                             })}
                         </div>
-                        
+                        {getUsername() && (
                         <div style={{ position:"absolute",bottom:0 , right:"50%" , transform:"translateX(50%)" }}>
                             <button onClick={()=>EditForm(info.slug)}>แก้ไขข้อมูล</button>
                             <button style={{backgroundColor:"red"}} onClick={()=>{removeInfo(info.slug)}}>ลบข้อมูล</button>
                         </div>
+                        )}
                     </div>
                 ))}               
                       

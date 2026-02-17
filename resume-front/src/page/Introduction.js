@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios"
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import {getUsername} from "../services/authorize"
 
 
 const Introduction = ({GetNavHeight}) => {
@@ -92,15 +93,16 @@ const Introduction = ({GetNavHeight}) => {
                 </div>
                 <div className="personal-info">
                     <p>สัญชาติ : <span>{info.nationality}</span></p> 
-                    <p>อายุ : <span>{info.age}</span><i className="fa-solid fa-pen" onClick={(i)=>EditForm(info.slug)}></i></p>
-                    <p>น้ำหนัก : <span>{info.weight}</span><i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i></p> 
-                    <p>ส่วนสูง : <span>{info.height}</span><i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i></p>
-                    <p>GitHub <i className="fa-brands fa-github"></i> : <span>{info.github}</span><i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i></p> 
+                    <p>อายุ : <span>{info.age}</span>{getUsername() && (<i className="fa-solid fa-pen" onClick={(i)=>EditForm(info.slug)}></i>)}</p>
+                    <p>น้ำหนัก : <span>{info.weight}</span>{getUsername() && (<i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i>)}</p> 
+                    <p>ส่วนสูง : <span>{info.height}</span>{getUsername() && (<i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i>)}</p>
+                    <p>GitHub <i className="fa-brands fa-github"></i> : <span>{info.github}</span>{getUsername() && (<i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i>)}</p> 
                 </div>
+                
                 <div className="btn" >                  
                         <button onClick={()=>downloadResume(info.ResumeFile)}>Download Resume</button>                   
                 </div>
-                
+                              
             </div>
             
         </div>

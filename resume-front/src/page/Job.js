@@ -5,7 +5,7 @@ import { useRef , useEffect , useState } from "react"
 import { useNavigate } from "react-router-dom"
 import axios from "axios"
 import Swal from "sweetalert2"
-import { getToken } from "../services/authorize"
+import { getToken , getUsername} from "../services/authorize"
 
 
 const Job = () => {
@@ -170,11 +170,12 @@ const Job = () => {
                                     
                                     ))}
                                 </div>
-
+                                {getUsername() && (  
                                 <div>
                                     <button onClick={()=>EditForm(info.slug)}>แก้ไขข้อมูล</button>
                                     <button onClick={()=>removeInfo(info.slug)} style={{backgroundColor:"red"}}>ลบข้อมูล</button>
                                 </div>
+                                )} 
                             </div>
                         </div>
                     </div> 
