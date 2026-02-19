@@ -9,7 +9,7 @@ import { Shareinfo } from "../ShareInfo";
 function App() {
   const NavHeight = useRef(null);
 
-  const [GetNavHeight , SetNavHeight] = useState();
+  const [GetNavHeight , SetNavHeight] = useState(0);
 
   useEffect(()=>{
       if(NavHeight.current){
