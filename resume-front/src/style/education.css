@@ -40,3 +40,33 @@
 }
 
 
+/* ส่วนของการแสดงผลหน้าจอต่าง ๆ */
+
+@media (max-width:576px) {
+    .container-education .container-sub-education1 span span {
+        display: block;
+    }
+
+}
+
+@media (min-width:577px) and (max-width:768px){
+    .container-education .container-sub-education1 span span {
+        display: block;
+    }
+
+}
+
+@media (min-width:769px) and (max-width:992px){
+    .container-education .container-sub-education1 span span {
+        display: block;
+    }
+
+}
+
+@media (min-width:993px) and (max-width:1200px){
+    .container-education .container-sub-education1 span span {
+        display: block;
+    }
+
+}
+

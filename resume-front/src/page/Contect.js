@@ -29,7 +29,8 @@ const Contect = () => {
             <Nav NavHeight = {NavHeight}/>
             <div className="contact" >
                 <div className="contact-detail">
-                    เบอร์โทร : <span>061 - 8569658</span>
+                    <div>เบอร์โทร : <span>061 - 8569658</span></div>
+                    <div>E-mail : <span>sawanyaboonprajuab@gmail.com</span></div>
                 </div>
                 <div className="contact-detail">
                     <div className="contact-icons">

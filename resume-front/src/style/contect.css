@@ -19,6 +19,11 @@
     font-weight: bold;
 }
 
+.contact .contact-detail div:nth-child(2) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .contact .contact-detail .contact-icons .fa-facebook {
     font-size: 25px;
     color: blue
@@ -27,6 +32,7 @@
 .contact .contact-detail .contact-icons .fa-square-x-twitter {
     font-size: 25px;
 }
+
 
 .contact .contact-detail span {
     font-size: 17px;
@@ -47,4 +53,27 @@ button {
 
 button:active {
     transform: scale(0.95);
+}
+
+
+/* ส่วนของการแสดงผลหน้าจอต่าง ๆ */
+
+@media (max-width:576px) {
+
+}
+
+@media (min-width:577px) and (max-width:768px){
+
+}
+
+@media (min-width:769px) and (max-width:992px){
+
+}
+
+@media (min-width:993px) and (max-width:1200px){
+
+}
+
+@media (min-width:1201px) {
+
 }

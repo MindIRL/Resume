@@ -187,7 +187,13 @@
         width:350px;
         padding: 10px;
         height: 100vh;
+        padding: 20px 0;
 
+    }
+
+    .nav .container-toggle .nav-toggle div a:hover{
+        background-color: yellow;
+        color: black;
     }
 
     .nav .container-toggle {
@@ -234,26 +240,116 @@
         display: block;
 
     }
-    
-    
 
-
+    .nav .container-toggle div a {
+        text-align: center;
+    }
+    
 }
 
 
 
 @media (min-width:577px) and (max-width:768px){
+    .nav {
+        font-size: 17px;
+    }
+    /* เปิดปุ่มกด toggle */
+    .nav  .nav-toggle  {
+        display: block;
+        z-index: 5;
+        
+    }
+
+    /* ปิดการทำงาน .nav-link ปกติ */
+    .nav .nav-link {
+        display: none;
+    }
+
+    /* เปิดการแสดงผล รายการแสดงผล toggle */
+    .nav .container-toggle {
+        display: block;
+
+    }
+
+    .nav .container-toggle div a {
+        text-align: center;
+    }
 
 }
 
 @media (min-width:769px) and (max-width:992px){
+    .nav {
+        font-size: 18px;
+    }
+    /* เปิดปุ่มกด toggle */
+    .nav  .nav-toggle  {
+        display: block;
+        z-index: 5;
+        
+    }
+
+    /* ปิดการทำงาน .nav-link ปกติ */
+    .nav .nav-link {
+        display: none;
+    }
+
+    /* เปิดการแสดงผล รายการแสดงผล toggle */
+    .nav .container-toggle {
+        display: block;
+
+    }
+
+    .nav .container-toggle div a {
+        text-align: center;
+    }
 
 }
 
-@media (min-width:993px) and (max-width:1200px){
+@media (min-width:993px) and (max-width:1300px){
+    .nav {
+        font-size: 19px;
+    }
+    /* เปิดปุ่มกด toggle */
+    .nav  .nav-toggle  {
+        display: block;
+        z-index: 5;
+        
+    }
+
+    /* ปิดการทำงาน .nav-link ปกติ */
+    .nav .nav-link {
+        display: none;
+    }
+
+    /* เปิดการแสดงผล รายการแสดงผล toggle */
+    .nav .container-toggle {
+        display: block;
+    }
+
+    .nav .container-toggle div a {
+        text-align: center;
+        font-size: 22px;
+    }
+
+    /* ขยายขนาดปุ่ม + ตัวอักษร */
+
+    .nav .nav-login div a {
+        font-size: 23px;
+    }
+
+
+    .nav .nav-login .form-selection {
+        font-size: 23px;
+    }
+
+    .nav .nav-login .form-selection .form-option a {
+        font-size: 23px;
+    }
+
+    .nav .nav-login .form-selection .form-option  {
+        width: 250px;
+        height: 62px;
+    }
 
 }
 
-@media (min-width:1201px) {
-
-}

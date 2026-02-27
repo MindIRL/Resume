@@ -19,13 +19,23 @@ const Nav = ({NavHeight}) => {
 
     console.log(newclass)
 
+    const updateButtonNavHeight = () =>{
+        if(button_nav_toggle_height.current){
+            SetbuttonNavHeight(button_nav_toggle_height.current.offsetHeight)
+        }else {
+            console.log("ไม่มีข้อมูลความสูง Navbar")
+        }
+    }
 
     useLayoutEffect(()=>{
-          if(button_nav_toggle_height.current){
-            SetbuttonNavHeight(button_nav_toggle_height.current.offsetHeight)
-          }else {
-            console.log("ไม่มีข้อมูลความสูง Navbar")
-          }
+        updateButtonNavHeight()
+
+        window.addEventListener("resize" , updateButtonNavHeight)
+
+        return ()=>{
+            window.removeEventListener("resize" , updateButtonNavHeight)
+        }
+
       },[])
 
     useLayoutEffect(()=>{
@@ -34,7 +44,7 @@ const Nav = ({NavHeight}) => {
 
     return(
         <div className="nav" ref={NavHeight}>
-            <div className= {newclass ? "container-toggle active" : "container-toggle"}  style={{paddingTop:`${GetbuttonNavHeight}px`}}>
+            <div className= {newclass ? "container-toggle active" : "container-toggle"}  style={{paddingTop:`${GetbuttonNavHeight+15}px`}}>
                 <div className="nav-toggle">
                     <div><Link to={"/"}><i className="fa-solid fa-house"></i> <span>หน้าแรก</span></Link></div>
                     <div><Link to={"/Education"}><i className="fa-solid fa-school"></i> <span>การศึกษา</span></Link></div>

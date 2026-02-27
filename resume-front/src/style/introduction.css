@@ -127,24 +127,233 @@ div.btn button{
     transform: translateY(-20px);
 }
 
+
+
 /* ส่วนของการแสดงผลหน้าจอต่าง ๆ */
 
 @media (max-width:576px) {
+    .container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .container .img {
+        margin-top: 25px;
+    }
+
+    .container .info div:first-child p:nth-child(2){
+        margin-top: 0;
+    }
+
+    .container .info .personal-info {
+        padding: 15px;
+    }
 
 }
 
-@media (min-width:577px) and (max-width:768px){
+@media (min-width:577px) and (max-width:594px){
+    .container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .container .img {
+        margin-top: 25px;
+    }
+
+    .container .info div:first-child p:nth-child(2){
+        margin-top: 0;
+    }
+
+    .container .info .personal-info {
+        padding: 15px;
+    }
+
+    .container .info div:first-child p:first-child {
+        font-size: 60px;
+    }
+
+    .container .info div:first-child p:nth-child(2) {
+        font-size: 60px;
+    }
+
+    .container .info .btn button{
+        font-weight: bolder;
+        font-size: 25px;
+    }
+}
+
+@media (min-width:595px) and (max-width:775px){
+    .container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .container .img {
+        margin-top: 25px;
+    }
+
+    .container .info div:first-child p:nth-child(2){
+        margin-top: 0;
+    }
+
+    .container .info .personal-info {
+        margin: 0;
+    }
+
+    .container .info .personal-info p {
+        width: 100px;
+    }
+
+    .container .info .personal-info p:last-child {
+        width: 130px;
+    }
+
+    .container .info .personal-info p span{
+        display: block;
+        text-align: center;
+
+    }
+
+    .container .info div:first-child p:first-child {
+        font-size: 65px;
+    }
+
+    .container .info div:first-child p:nth-child(2) {
+        font-size: 65px;
+    }
+
+        .container .info .btn button{
+        font-weight: bolder;
+        font-size: 26px;
+    }
 
 }
 
-@media (min-width:769px) and (max-width:992px){
+@media (min-width:776px) and (max-width:948px){
+
+    .container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .container .img {
+        margin-top: 25px;
+    }
+
+    .container .info div:first-child p:nth-child(2){
+        margin-top: 0;
+    }
+
+    .container .info .personal-info {
+        margin: 0;
+    }
+
+    .container .info .personal-info p {
+        width: 100px;
+    }
+
+    .container .info .personal-info p:last-child {
+        width: 130px;
+    }
+
+    .container .info .personal-info p span{
+        display: block;
+        text-align: center;
+
+    }
+
+    .container .info .personal-info p {
+        font-size: 19.75px;
+    } 
+
+    .container .info div:first-child p:first-child {
+        font-size: 70px;
+    }
+
+        .container .info div:first-child p:nth-child(2) {
+        font-size: 70px;
+    }
+
+    .container .info .btn button{
+        font-weight: bolder;
+        font-size: 28px;
+    }
 
 }
 
-@media (min-width:993px) and (max-width:1200px){
+@media (min-width:949px) and (max-width:1089px){
+    .container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .container .img {
+        margin-top: 25px;
+    }
+
+    .container .info div:first-child p:nth-child(2){
+        margin-top: 0;
+    }
+
+    .container .info .personal-info {
+        padding: 15px;
+        
+    }
+
+    .container .info .personal-info p {
+        font-size: 21px;
+    }
+
+    .container .info div:first-child p:first-child {
+        font-size: 75px;
+    }
+
+    .container .info div:first-child p:nth-child(2) {
+        font-size: 75px;
+    }
+
+    .container .info .btn button{
+        font-weight: bolder;
+        font-size: 28px;
+    }
 
 }
 
-@media (min-width:1201px) {
+@media (min-width:1090px) and (max-width:1200px){
+    .container {
+        flex-direction: column;
+        gap: 0;
+    }
 
+    .container .img {
+        margin-top: 25px;
+    }
+
+    .container .info div:first-child p:nth-child(2){
+        margin-top: 0;
+    }
+
+    .container .info .personal-info {
+        padding: 15px;
+        
+    }
+
+    .container .info .personal-info p {
+        font-size: 25px;
+    }
+
+    .container .info div:first-child p:first-child {
+        font-size: 85px;
+    }
+
+    .container .info div:first-child p:nth-child(2) {
+        font-size: 85px;
+    }
+
+    .container .info .btn button{
+        font-weight: bolder;
+        font-size: 29px;
+    }
 }
+
