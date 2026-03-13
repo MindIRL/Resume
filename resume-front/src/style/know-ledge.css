@@ -36,24 +36,158 @@ button:active {
 }
 
 
+
 /* ส่วนของการแสดงผลหน้าจอต่าง ๆ */
 
 @media (max-width:576px) {
+    .Font-Back-Container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .back-end {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .front-end p {
+        text-align: center;
+    }
+
+    .back-end p {
+        text-align: center;
+    }
 
 }
 
-@media (min-width:577px) and (max-width:768px){
+@media (min-width:577px) and (max-width:594px){
+    .Font-Back-Container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .back-end {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .front-end p {
+        text-align: center;
+    }
+
+    .back-end p {
+        text-align: center;
+    }
 
 }
 
-@media (min-width:769px) and (max-width:992px){
+@media (min-width:595px) and (max-width:775px){
+    .Font-Back-Container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .back-end {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .front-end p {
+        text-align: center;
+    }
+
+    .back-end p {
+        text-align: center;
+    }
 
 }
 
-@media (min-width:993px) and (max-width:1200px){
+@media (min-width:776px) and (max-width:948px){
+    .Font-Back-Container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .back-end {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .front-end p {
+        text-align: center;
+    }
+
+    .back-end p {
+        text-align: center;
+    }
+
+    .Font-Back-Container p {
+        font-size: 27px;
+    }
+
+    .Font-Back-Container ul li {
+        font-size: 20px;
+    }
+
+    .Font-Back-Container div button {
+        font-size: 18px;
+    }
+}
+
+@media (min-width:949px) and (max-width:1089px){
+    .Font-Back-Container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .back-end {
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+
+    .front-end p {
+        text-align: center;
+    }
+
+    .back-end p {
+        text-align: center;
+    }
+
+    .Font-Back-Container p {
+        font-size: 27px;
+    }
+
+    .Font-Back-Container ul li {
+        font-size: 20px;
+    }
+
+    .Font-Back-Container div button {
+        font-size: 19px;
+    }
+}
+
+
+@media (min-width:1090px) and (max-width:1200px){
+    .front-end p {
+        text-align: center;
+    }
+
+    .back-end p {
+        text-align: center;
+    }
+
+    .Font-Back-Container p {
+        font-size: 29px;
+    }
+
+    .Font-Back-Container ul li {
+        font-size: 22px;
+    }
+
+    .Font-Back-Container div button {
+        font-size: 20px;
+    }
 
 }
 
-@media (min-width:1201px) {
 
-}

@@ -38,7 +38,7 @@ const EditPersonalForm = () =>{
         }
 
         // axios.put(`${process.env.REACT_APP_API_URL}update-information/${slug}`, formData ,{headers: { "Content-Type": "multipart/form-data"}})
-        axios.put(`${process.env.REACT_APP_API_URL}update-information/${slug}`, formData ,{headers: { Authorization: `bearer ${getToken()}`}})
+        axios.put(`${process.env.REACT_APP_API_URL}update-information/${slug}`, formData ,{headers: { Authorization: `Bearer ${getToken()}`}})
         .then((res)=>{
             console.log("ข้อมูลสำเร็จ" , res)
 

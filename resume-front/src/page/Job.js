@@ -132,12 +132,12 @@ const Job = () => {
     return(
         <div className="Education-container" style={{paddingTop:`${GetNavHeight}px`}}>
             <Nav NavHeight = {NavHeight}/>
+                <div className="Education-titel">
+                    <span>ประสบการณ์การทำงาน</span>
+                </div>
             {GetInfo.map((info , idx)=>{
                 return (
                     <div key={idx}>
-                         <div className="Education-titel">
-                            <span>ประสบการณ์การทำงาน</span>
-                        </div>
                         <div className="Education-detail">
                             <img alt="" src={ImageURLs[info.slug]}></img>
                             <div>
@@ -171,7 +171,7 @@ const Job = () => {
                                     ))}
                                 </div>
                                 {getUsername() && (  
-                                <div>
+                                <div className="btn-job">
                                     <button onClick={()=>EditForm(info.slug)}>แก้ไขข้อมูล</button>
                                     <button onClick={()=>removeInfo(info.slug)} style={{backgroundColor:"red"}}>ลบข้อมูล</button>
                                 </div>

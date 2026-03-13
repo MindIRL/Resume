@@ -51,26 +51,174 @@ button:active {
     transform: scale(0.95);
 }
 
+.Education-container .Education-titel {
+    margin-bottom: 50px;
+}
+
+.Education-container .Education-detail div {
+    margin-bottom: 20px;
+    
+}
+
 
 
 /* ส่วนของการแสดงผลหน้าจอต่าง ๆ */
 
 @media (max-width:576px) {
+    .Education-container  .Education-detail  {
+        flex-direction: column;
+    } 
+    .Education-container  .Education-detail div {
+        margin-left: 0;
+        margin-top: 10px;
+    } 
+    .Education-container  .Education-detail img {
+        margin: auto;
+    }
+
+    .Education-container {
+        margin-left: 30px;
+    }
+
+    .Education-container  .Education-detail .btn-job {
+        display: flex;
+        justify-content: center;
+    }
 
 }
 
-@media (min-width:577px) and (max-width:768px){
+@media (min-width:577px) and (max-width:594px){
+    .Education-container  .Education-detail  {
+        flex-direction: column;
+    } 
+    .Education-container  .Education-detail div {
+        margin-left: 0;
+        margin-top: 10px;
+    } 
+    .Education-container  .Education-detail img {
+        margin: auto;
+    }
 
+    .Education-container {
+        margin-left: 30px;
+    }
+
+    .Education-container  .Education-detail .btn-job {
+        display: flex;
+        justify-content: center;
+    }
 }
 
-@media (min-width:769px) and (max-width:992px){
+@media (min-width:595px) and (max-width:775px){
+    .Education-container  .Education-detail  {
+        flex-direction: column;
+    } 
+    .Education-container  .Education-detail div {
+        margin-left: 0;
+        margin-top: 10px;
+    } 
+    .Education-container  .Education-detail img {
+        margin: auto;
+    }
 
+    .Education-container {
+        margin-left: 35px;
+    }
+
+    .Education-container  .Education-detail .btn-job {
+        display: flex;
+        justify-content: center;
+    }
 }
 
-@media (min-width:993px) and (max-width:1200px){
 
+@media (min-width:776px) and (max-width:948px){
+    .Education-container  .Education-detail  {
+        flex-direction: column;
+    } 
+    .Education-container  .Education-detail div {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 20px;
+    } 
+    .Education-container  .Education-detail img {
+        margin: auto;
+    }
+
+    .Education-container {
+        margin-left: 40px;
+    }
+
+    .Education-container  .Education-detail .btn-job {
+        display: flex;
+        justify-content: center;        
+    }
+    .Education-container  .Education-detail .btn-job button {
+        font-size: 18px;
+    }
+
+    .Education-titel {
+        font-size: 40px;
+    }
 }
 
-@media (min-width:1201px) {
+@media (min-width:949px) and (max-width:1089px){
+    .Education-container  .Education-detail  {
+        flex-direction: column;
+    } 
+    .Education-container  .Education-detail div {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 21px;
+    } 
+    .Education-container  .Education-detail img {
+        margin: auto;
+    }
 
+    .Education-container {
+        margin-left: 40px;
+    }
+
+    .Education-container  .Education-detail .btn-job {
+        display: flex;
+        justify-content: center;        
+    }
+    .Education-container  .Education-detail .btn-job button {
+        font-size: 18px;
+    }
+
+    .Education-titel {
+        font-size: 45px;
+    }
 }
+
+@media (min-width:1090px) and (max-width:1200px){
+    .Education-container  .Education-detail  {
+        flex-direction: column;
+    } 
+    .Education-container  .Education-detail div {
+        margin-left: 0;
+        margin-top: 10px;
+        font-size: 22px;
+    } 
+    .Education-container  .Education-detail img {
+        margin: auto;
+    }
+
+    .Education-container {
+        margin-left: 50px;
+    }
+
+    .Education-container  .Education-detail .btn-job {
+        display: flex;
+        justify-content: center;        
+    }
+    .Education-container  .Education-detail .btn-job button {
+        font-size: 18px;
+    }
+
+    .Education-titel {
+        font-size: 45px;
+    }
+}
+

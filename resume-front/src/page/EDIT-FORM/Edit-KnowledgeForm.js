@@ -61,7 +61,7 @@ const EditKnowledgeForm = () =>{
         }
         
         // axios.put(`${process.env.REACT_APP_API_URL}Knowledge-update-information/${slug}` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
-        axios.put(`${process.env.REACT_APP_API_URL}Knowledge-update-information/${slug}` , formData , {headers:{ Authorization : `bearer ${getToken()}`}})
+        axios.put(`${process.env.REACT_APP_API_URL}Knowledge-update-information/${slug}` , formData , {headers:{ Authorization : `Bearer ${getToken()}`}})
 
     }
 

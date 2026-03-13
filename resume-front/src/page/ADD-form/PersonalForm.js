@@ -36,7 +36,7 @@ const PersonalForm = () =>{
         }
 
         // axios.post(`${process.env.REACT_APP_API_URL}create-Personal-info`, formData ,{headers: { "Content-Type": "multipart/form-data"}})
-        axios.post(`${process.env.REACT_APP_API_URL}create-Personal-info`, formData ,{headers:{Authorization:`bearer ${getToken()}`}})
+        axios.post(`${process.env.REACT_APP_API_URL}create-Personal-info`, formData ,{headers:{Authorization:`Bearer ${getToken()}`}})
         .then((res)=>{
             console.log("ข้อมูลสำเร็จ" , res)
 

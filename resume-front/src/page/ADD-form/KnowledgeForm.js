@@ -58,7 +58,7 @@ const KnowledgeForm = () =>{
         }
         
         // axios.post(`${process.env.REACT_APP_API_URL}create-Knowledge-info` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
-        axios.post(`${process.env.REACT_APP_API_URL}create-Knowledge-info` , formData , {headers:{Authorization:`bearer ${getToken()}`}})
+        axios.post(`${process.env.REACT_APP_API_URL}create-Knowledge-info` , formData , {headers:{Authorization:`Bearer ${getToken()}`}})
 
     }
 

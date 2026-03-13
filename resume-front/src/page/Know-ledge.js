@@ -89,9 +89,9 @@ const Knowledge = () => {
         <div className="knowledge-container" style={{padding:`${GetNavHeight+20}px`, display:"flex" , flexDirection:"column" }}>
             <Nav NavHeight ={NavHeight}/>  
                 {GetInfo.map((info , idx)=>(
-                    <div key={idx} style={{display:"flex" , position:"relative" , paddingBottom:"50px" , gap:"25px" , justifyContent:"center"}}>
+                    <div className="Font-Back-Container" key={idx} style={{display:"flex" , position:"relative" , paddingBottom:"50px" , gap:"25px" , justifyContent:"center"}}>
                         <div className="front-end" >
-                            <p>ความรู้พื้นฐานตำแหน่ง Front End Developer <i class="fa-solid fa-computer"></i></p>    
+                            <p>ความรู้พื้นฐานตำแหน่ง  <i class="fa-solid fa-computer"> Front End Developer</i></p>    
                             {info.FrontEnd.experiences.map((info , idx)=>{
                             return(
                                     <ul key={idx}>
@@ -103,7 +103,7 @@ const Knowledge = () => {
 
 
                         <div className="back-end" >
-                            <p>ความรู้พื้นฐานตำแหน่ง Back End Developer <i class="fa-solid fa-server"></i></p>
+                            <p>ความรู้พื้นฐานตำแหน่ง  <i class="fa-solid fa-server"> Back End Developer</i></p>
                             {info.BackEnd.experiences.map((info , idx)=>{
                                 return(
                                     <ul>

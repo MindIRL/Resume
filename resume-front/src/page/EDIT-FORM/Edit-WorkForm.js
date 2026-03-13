@@ -34,7 +34,8 @@ const EditWorkForm = () =>{
 
     }
 
-    const WorkSubmit = () =>{
+    const WorkSubmit = (e) =>{
+        e.preventDefault()
         const formData = new FormData()
         for(let key in FormWork){
             if(key === "WorkDetails"){
@@ -46,7 +47,7 @@ const EditWorkForm = () =>{
         }
 
         // axios.put(`${process.env.REACT_APP_API_URL}Work-update-information/${slug}` , formData , {headers:{ "Content-Type": "multipart/form-data"}})
-        axios.put(`${process.env.REACT_APP_API_URL}Work-update-information/${slug}` , formData , {headers:{ Authorization:`bearer ${getToken()}`}})
+        axios.put(`${process.env.REACT_APP_API_URL}Work-update-information/${slug}` , formData , {headers:{ Authorization:`Bearer ${getToken()}`}})
     }
 
 
