@@ -96,7 +96,7 @@ const Introduction = ({GetNavHeight}) => {
                     <p>อายุ : <span>{info.age}</span>{getUsername() && (<i className="fa-solid fa-pen" onClick={(i)=>EditForm(info.slug)}></i>)}</p>
                     <p>น้ำหนัก : <span>{info.weight}</span>{getUsername() && (<i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i>)}</p> 
                     <p>ส่วนสูง : <span>{info.height}</span>{getUsername() && (<i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i>)}</p>
-                    <p>GitHub <i className="fa-brands fa-github"></i> : <span>{info.github}</span>{getUsername() && (<i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i>)}</p> 
+                    <p>GitHub <i className="fa-brands fa-github"></i> : <span><a href={`https://github.com/${info.github}`} target="_blank">{info.github}</a></span>{getUsername() && (<i className="fa-solid fa-pen" onClick={()=>EditForm(info.slug)}></i>)}</p> 
                 </div>
                 
                 <div className="btn" >                  
